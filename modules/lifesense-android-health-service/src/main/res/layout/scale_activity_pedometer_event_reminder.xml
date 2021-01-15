@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+ <data>
+    <variable
+        name="viewModel"
+        type="com.lifesense.android.health.service.devicedetails.ui.activity.vm.EventReminderDetailViewModel" />
+  <import type="com.lifesense.android.health.service.devicedetails.item.builder.ItemType"/>
+ </data>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+     app:navTitle="@{`事件提醒设置`}"
+
+     >
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:focusableInTouchMode="true">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scale_showSwitch="true"
+        app:scale_showRightArrow="false"
+        app:title="@{`打开提醒`}"
+        app:openSwitch="@{viewModel.enable}"
+        android:onCheckedChanged="@{(view, isChecked)->viewModel.onSwitchChanged(view, isChecked)}"
+        app:cellType="@{ItemType.Switch}"
+        />
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@{`提醒时间`}"
+        app:value="@{viewModel.remindTime}"
+        android:onClick="@{(view)->viewModel.onReminderHourClick(view)}"
+        />
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_repeat_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@{`每周重复时间`}"
+        app:value="@{viewModel.remindRepeatTime}"
+        android:onClick="@{(view)->viewModel.onReminderRepeatTimeClick(view)}"
+        />
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_vibration_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@{`震动方式`}"
+        app:value="@{viewModel.vibrationMode}"
+        android:onClick="@{(view)->viewModel.onReminderVibrationModeClick(view)}"
+        />
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_vibration_tensity1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@{`震动等级1`}"
+        app:value="@{viewModel.vibrationTensity1}"
+        android:onClick="@{(view)->viewModel.onReminderVibrationTensity1Click(view)}"
+        />
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_vibration_tensity2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@{`震动等级2`}"
+        app:value="@{viewModel.vibrationTensity2}"
+        android:onClick="@{(view)->viewModel.onReminderVibrationTensity2Click(view)}"
+        />
+
+    <com.lifesense.android.health.service.devicedetails.widget.CellView
+        android:id="@+id/reminder_vibration_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@{`震动时长`}"
+        app:value="@{viewModel.vibrationDuration}"
+        android:onClick="@{(view)->viewModel.onReminderVibrationDurationClick(view)}"
+        />
+
+    <EditText
+        android:id="@+id/et_reminder_content"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:hint="@{`请输入提醒内容`}"
+        android:paddingHorizontal="@dimen/scale_dp_24"
+        android:gravity="start|top"
+        android:textSize="@dimen/sp_14"
+        android:background="@null"
+        android:paddingTop="@dimen/dp_10"
+        android:text="@={viewModel.content}"
+        />
+   </LinearLayout>
+  </ScrollView>
+
+  <TextView
+      android:id="@+id/bt_add_event_reminder"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingVertical="16dp"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="@dimen/scale_dp_24"
+      android:text="确定"
+      android:background="#3399FF"
+      android:textColor="@color/scale_white"
+      android:gravity="center"
+      android:onClick="@{(view)->viewModel.onAddClick(view)}"
+      />
+ </LinearLayout>
+</layout>

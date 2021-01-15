@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.lifesense.android.health.service.deviceconfig.ui.DeviceStatusListViewModel" />
+        <import type="com.lifesense.android.health.service.R"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        navTitle="@{R.string.scale_mine_device}"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:visibility="@{viewModel.adapter.items == null || viewModel.adapter.items.size() == 0 ? View.GONE : View.VISIBLE}"
+                app:adapter="@{viewModel.adapter}"
+                >
+            </androidx.recyclerview.widget.RecyclerView>
+            <include
+                android:id="@+id/emptyView"
+                android:visibility="@{viewModel.adapter.items == null || viewModel.adapter.items.size() == 0 ? View.VISIBLE : View.GONE}"
+                layout="@layout/scale_layout_empty_device_state" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/btn_add"
+            style="@style/scale_PositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center"
+            android:text="添加新设备"
+            android:onClick="@{(view)->viewModel.onClick(view)}"
+            />
+
+    </LinearLayout>
+</layout>

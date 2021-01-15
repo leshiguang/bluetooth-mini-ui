@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.lifesense.android.health.service.devicedetails.ui.activity.vm.HeartRateAlertConfigViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:navTitle='@{"心率预警设置"}'
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scale_dp_52"
+            android:paddingHorizontal="@dimen/scale_dp_24">
+
+            <androidx.appcompat.widget.SwitchCompat
+                style="@style/scale_SwitchCompatStyle"
+                android:id="@+id/alert_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:checked="@{viewModel.enable}"
+                android:onCheckedChanged="@{(view, isChecked)->viewModel.onAlertSwitchCheckedChanged(view, isChecked)}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/scale_black"
+                android:layout_alignParentLeft="true"
+                android:text="预警开关"
+                android:textSize="@dimen/scale_cell_title_text_size" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/heartRateAlertRange"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scale_dp_52"
+            android:paddingHorizontal="@dimen/scale_dp_24"
+            android:onClick="@{(view)->viewModel.onHeartAlertRangeClick(view)}"
+            >
+
+            <ImageView
+                android:id="@+id/wake_alert_range"
+                android:layout_width="@dimen/scale_cell_arrow_size"
+                android:layout_height="@dimen/scale_cell_arrow_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                app:srcCompat="@mipmap/scale_ic_arrow_right" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/scale_dp_24"
+                android:layout_toStartOf="@id/wake_alert_range"
+                android:text="@{viewModel.range}"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:maxLines="1"
+                android:textSize="@dimen/scale_cell_value_text_size"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/scale_black"
+                android:layout_alignParentLeft="true"
+                android:text="心率区间"
+                android:textSize="@dimen/scale_cell_title_text_size" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,1 @@
+gradle task uploadArchives -Puse_snapshot --settings-file ../settings_commonlogic.gradle

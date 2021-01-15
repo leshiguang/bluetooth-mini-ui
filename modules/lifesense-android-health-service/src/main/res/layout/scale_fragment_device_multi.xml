@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listener"
+            type="com.lifesense.android.health.service.devicebind.ui.fragment.DeviceMultiFragment" />
+        <variable
+            name="adapter"
+            type="com.lifesense.android.health.service.devicebind.adapter.FindDeviceResultRvAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scale_device_select_title"
+            android:textColor="#414141"
+            android:textSize="16sp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dip"
+            android:layout_marginBottom="41dp"
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:adapter="@{adapter}"
+            />
+        <TextView
+            android:id="@+id/tv_bottom"
+            style="@style/scale_PositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="70dp"
+            android:gravity="center"
+            android:text="@string/scale_device_action_bind"
+            android:onClick="@{view->listener.onClick(view)}"
+            />
+
+
+    </LinearLayout>
+</layout>

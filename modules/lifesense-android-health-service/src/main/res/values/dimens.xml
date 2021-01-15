@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    dialog-->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="scale_font_14">14sp</dimen>
+    <dimen name="scale_margin_50">50dp</dimen>
+
+
+    <!--首页tips-->
+
+
+    <dimen name="scale_rippleRadius">64dp</dimen>
+    <dimen name="scale_rippleStrokeWidth">2dp</dimen>
+
+
+    <dimen name="scale_dp_58">58.0dip</dimen>
+    <dimen name="scale_dp_52">52.0dip</dimen>
+    <dimen name="scale_dp_24">24.0dip</dimen>
+    <dimen name="scale_line_space_extra">4dp</dimen>
+    <dimen name="scale_cell_title_text_size">14sp</dimen>
+    <dimen name="scale_cell_value_text_size">13sp</dimen>
+    <dimen name="scale_cell_arrow_size">16dp</dimen>
+    <!--    dialog-->
+    <dimen name="scale_dialog_title_text_size">16sp</dimen>
+    <dimen name="scale_dialog_msg_text_size">14sp</dimen>
+    <dimen name="scale_dialog_button_text_size">16sp</dimen>
+    <dimen name="scale_dialog_bg_corner_radius">18dp</dimen>
+
+</resources>

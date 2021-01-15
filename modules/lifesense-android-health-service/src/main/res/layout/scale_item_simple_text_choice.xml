@@ -1,0 +1,40 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="int" />
+        <variable
+            name="selected"
+            type="boolean" />
+        <import type="com.lifesense.android.health.service.devicedetails.utils.DataTransformUtil"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/scale_dp_24"
+        android:paddingVertical="12dp">
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textColor="@color/scale_black"
+            android:textSize="@dimen/scale_cell_title_text_size"
+            android:text="@{DataTransformUtil.getTimeFormatTextByType(item)}"
+            />
+
+        <ImageView
+            android:id="@+id/checkbox"
+            android:layout_width="@dimen/scale_dp_24"
+            android:layout_height="@dimen/scale_dp_24"
+            android:layout_gravity="end"
+            android:background="@drawable/scale_checkbox_group_style"
+            android:focusable="false"
+            app:selected="@{selected}"
+            />
+    </FrameLayout>
+</layout>

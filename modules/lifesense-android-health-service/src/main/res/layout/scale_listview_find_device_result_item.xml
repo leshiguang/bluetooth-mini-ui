@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lifesense.android.health.service.common.LSEDeviceInfoApp" />
+        <variable
+            name="nearest"
+            type="boolean" />
+        <variable
+            name="selected"
+            type="boolean" />
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/scale_dp_24">
+
+        <TextView
+            android:id="@+id/tv_device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@{item.deviceName}"
+            android:textColor="@color/scale_black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/checkbox"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/scale_checkbox_group_style"
+            android:focusable="false"
+            app:selected="@{selected}"
+            />
+
+        <TextView
+            android:id="@+id/tvTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:padding="5dip"
+            android:text="@string/scale_device_closest"
+            android:layout_toRightOf="@id/tv_device_name"
+            android:textColor="#9F9F9F"
+            android:textSize="10sp"
+            android:visibility="@{nearest ? View.VISIBLE : View.GONE}"
+            />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,8 @@
+<resources>
+    <!--导航条-->
+    <declare-styleable name="scale_NavigationBar">
+        <attr name="scale_lz_navigationIcon" format="reference"/>
+        <attr name="scale_lz_title" format="string|reference"/>
+        <attr name="scale_lz_titleColor" format="color|reference"/>
+    </declare-styleable>
+</resources>

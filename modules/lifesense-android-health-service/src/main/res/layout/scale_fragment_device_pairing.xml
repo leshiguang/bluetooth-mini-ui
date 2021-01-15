@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="imageUrl"
+            type="String" />
+        <variable
+            name="deviceName"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/ivDeviceIcon"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="60dp"
+            app:imageUrl="@{imageUrl}"
+            />
+
+        <TextView
+            android:id="@+id/tvDeviceBind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4A4A4A"
+            android:textSize="20sp"
+            android:layout_marginTop="28dp"
+            android:textStyle="bold"
+            android:text="@{deviceName}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scale_device_pairing"
+            android:textColor="#9F9F9F"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp" />
+
+        <ProgressBar
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:indeterminateBehavior="repeat"
+            android:layout_gravity="center_horizontal"
+            android:indeterminateDrawable="@drawable/scale_refresh_progress_draw"
+            android:layout_marginTop="15dp" />
+
+    </LinearLayout>
+</layout>

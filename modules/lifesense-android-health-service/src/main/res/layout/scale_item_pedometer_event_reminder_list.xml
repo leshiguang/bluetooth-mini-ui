@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lifesense.android.ble.core.application.model.config.EventReminder" />
+        <import type="com.lifesense.android.health.service.util.FormatUtil"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/scale_dp_24"
+        android:paddingVertical="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_reminder_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/scale_black"
+            android:textSize="@dimen/sp_16"
+            android:minWidth="@dimen/dp_72"
+            android:text="@{FormatUtil.formatTime(item.hour, item.min)}"
+            />
+
+        <TextView
+            android:id="@+id/tv_reminder_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_weight="1"
+            android:text="@{item.content}"
+            />
+
+        <ImageView
+            android:id="@+id/iv_del_event_reminder"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@mipmap/scale_ic_alarm_delete"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+</layout>

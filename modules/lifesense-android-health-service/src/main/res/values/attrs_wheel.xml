@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="scale_vvRecycleWheelView">
+        <attr name="scale_recycleWheelDirection" format="enum">
+            <enum name="scale_vertical" value="0"/>
+            <enum name="scale_horizontal" value="1"/>
+        </attr>
+        <attr name="scale_recycleWheelLineColor" format="color"/>
+        <attr name="scale_recycleWheelLineThickness" format="dimension"/>
+        <attr name="scale_recycleWheelLineDrawable" format="reference"/>
+        <attr name="scale_recycleWheelLinePadding" format="dimension"/>
+    </declare-styleable>
+</resources>

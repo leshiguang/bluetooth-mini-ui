@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lifesense.android.ble.core.application.model.config.DialPlate.DialPlateType" />
+        <variable
+            name="selected"
+            type="boolean" />
+        <import type="com.lifesense.android.health.service.devicedetails.utils.DataTransformUtil"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility='@{DataTransformUtil.getDialPlateImageUrlByType(item) == null || "".equals(DataTransformUtil.getDialPlateImageUrlByType(item)) ? View.GONE : View.VISIBLE}'
+        >
+
+        <ImageView
+            android:id="@+id/iv_dial_peace"
+            android:layout_width="60dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@{DataTransformUtil.getDialPlateImageUrlByType(item)}"
+            />
+        <ImageView
+            android:id="@+id/checkbox"
+            android:layout_width="@dimen/scale_dp_24"
+            android:layout_height="@dimen/scale_dp_24"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/scale_checkbox_group_style"
+            android:focusable="false"
+            app:selected="@{selected}"
+            />
+    </LinearLayout>
+</layout>

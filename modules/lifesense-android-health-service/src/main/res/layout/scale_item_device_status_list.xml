@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lifesense.android.health.service.device.DeviceStateWrapper" />
+        <import type="android.view.View"/>
+        <import type="com.lifesense.android.health.service.R" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/scale_dp_24">
+
+        <ImageView
+            android:id="@+id/iv_device"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@mipmap/scale_device_melodylanya"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/scale_black"
+                android:textSize="14sp"
+                tools:text="@{item.device.deviceName}" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_connect_status"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src='@{item.connected ? R.mipmap.scale_ic_bluetooth_connected : R.mipmap.scale_ic_bluetooth_disconnect}' />
+
+                <TextView
+                    android:id="@+id/tv_connect_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="#9F9F9F"
+                    android:textSize="12sp"
+                    tools:text='@{item.connected ? @string/scale_s_bluetooth_connected : @string/scale_s_bluetooth_disconnect}' />
+                <LinearLayout
+                    android:id="@+id/layout_connecting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="2dp"
+                    android:visibility='@{item.connected ? View.GONE : View.VISIBLE}'
+                    >
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:indeterminateDrawable="@drawable/scale_anim_loading_progress_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="3dp"
+                        android:textColor="#5D8DE4"
+                        android:textSize="10sp"
+                        android:text="@string/scale_s_connecting"
+                        />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/iv_device_battery"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    tools:src="@mipmap/scale_battery_100_zh"
+                    android:visibility="gone"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_device_battery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="#9F9F9F"
+                    android:textSize="10sp"
+                    tools:text="96%"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:srcCompat="@mipmap/scale_ic_arrow_right" />
+    </LinearLayout>
+</layout>

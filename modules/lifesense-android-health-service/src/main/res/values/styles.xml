@@ -1,0 +1,78 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="scale_FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/scale_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/scale_colorPrimaryDark</item>
+        <item name="colorAccent">@color/scale_colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="scale_Theme_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowNoTitle">true</item>
+        <!-- dialog背景样式 -->
+    </style>
+    <!--圆角为6 蓝色的按钮样式-->
+
+    <style name="scale_text_apprarance_medium">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="scale_SwitchCompatStyle">
+        <item name="switchMinWidth">48dp</item>
+        <item name="track">@drawable/scale_selector_switch_track</item>
+        <item name="android:thumb">@drawable/scale_selector_switch_thumb</item>
+        <item name="android:background">@null</item>
+        <item name="colorControlActivated">#00000000</item>
+        <item name="colorSwitchThumbNormal">#00000000</item>
+
+           
+        <item name="android:colorForeground">#00000000</item>
+
+    </style>
+    <style name="scale_PositiveButtonStyle">
+        <item name="android:minWidth">220dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:background">@drawable/scale_bg_positive_button</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/scale_white</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="scale_NegativeButtonStyle">
+        <item name="android:minWidth">220dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:background">@drawable/scale_bg_negative_button</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/scale_black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="scale_Wait.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item> <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item> <!-- 是否浮现在activity之上 -->
+        <item name="windowNoTitle">true</item> <!-- 无标题 -->
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:backgroundDimEnabled">true</item> <!-- 模糊 -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
+
+    <style name="scale_text_editStyle">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:background">@mipmap/scale_bg_verify</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/scale_edittext_common_blue</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+</resources>

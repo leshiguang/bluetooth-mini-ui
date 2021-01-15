@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="start"
+            type="boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical">
+
+            <com.lifesense.android.health.service.devicebind.widget.MediumTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scale_device_searching"
+                android:textColor="@color/scale_black"
+                android:textSize="32dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:singleLine="false"
+                android:text="@string/scale_device_please_move_your_mobile"
+                android:textColor="@color/scale_black"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.lifesense.android.health.service.devicebind.widget.RippleBackground xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:scale_rb_color="#4DD2FF"
+                    app:scale_rb_duration="1500"
+                    app:scale_rb_radius="60dp"
+                    app:scale_rb_rippleAmount="3"
+                    app:scale_rb_scale="6"
+                    app:scale_rb_type="fillRipple"
+                    app:scale_rb_bottom_margin="58dp"
+                    app:start="@{start}"
+                    />
+
+                <ImageView
+                    android:layout_width="100dip"
+                    android:layout_height="158dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    app:srcCompat="@mipmap/scale_ic_phone"
+                    android:paddingBottom="58dp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

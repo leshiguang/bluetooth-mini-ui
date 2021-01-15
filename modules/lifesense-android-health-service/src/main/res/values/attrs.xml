@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="scale_RippleBackground">
+        <attr name="scale_rb_color" format="color"/>
+        <attr name="scale_rb_strokeWidth" format="dimension"/>
+        <attr name="scale_rb_radius" format="dimension"/>
+        <attr name="scale_rb_duration" format="integer"/>
+        <attr name="scale_rb_rippleAmount" format="integer"/>
+        <attr name="scale_rb_scale" format="float"/>
+        <attr name="scale_rb_type" format="enum">
+            <enum name="fillRipple" value="0"/>
+            <enum name="strokeRipple" value="1"/>
+        </attr>
+        <attr name="scale_rb_bottom_margin" format="dimension"/>
+    </declare-styleable>
+</resources>

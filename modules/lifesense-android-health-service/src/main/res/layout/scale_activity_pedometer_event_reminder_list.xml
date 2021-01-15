@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <data>
+      <variable
+          name="viewModel"
+          type="com.lifesense.android.health.service.devicedetails.ui.activity.vm.EventReminderConfigViewModel" />
+   </data>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          android:layout_weight="1"
+          app:adapter="@{viewModel.adapter}"
+          />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingVertical="16dp"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="@dimen/scale_dp_24"
+          android:text="增加事件提醒"
+          android:background="#3399FF"
+          android:textColor="@color/scale_white"
+          android:gravity="center"
+          android:onClick="@{(view)->viewModel.onAddClick(view)}"
+          />
+   </LinearLayout>
+</layout>

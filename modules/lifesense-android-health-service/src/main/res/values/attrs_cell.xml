@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="scale_cellView">
+        <attr name="scale_title" format="string|reference"/>
+        <attr name="scale_value" format="string|reference"/>
+        <attr name="scale_showRightArrow" format="boolean"/>
+        <attr name="scale_showSwitch" format="boolean"/>
+        <attr name="scale_showButton" format="boolean"/>
+        <attr name="scale_checked" format="boolean"/>
+    </declare-styleable>
+</resources>

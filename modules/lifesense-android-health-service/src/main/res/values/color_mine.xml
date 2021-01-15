@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--给的四种颜色-->
+
+    <color name="scale_edittext_common_blue">#0090FF</color>
+
+</resources>

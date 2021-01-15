@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+def getProductName() {
+    return "lifesense-android-common-service"
+}
+android {
+    compileSdkVersion Integer.valueOf("$COMPILESDKVERSION")
+    buildToolsVersion "$BUILDTOOLSVERSION"
+
+    defaultConfig {
+        minSdkVersion Integer.valueOf("$MINSDKVERSION")
+        targetSdkVersion Integer.valueOf("$TARGETSDKVERSION")
+        versionCode Integer.valueOf("$VERSIONCODE")
+        versionName "$VERSIONNAME"
+        resourcePrefix 'scale'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [
+                    "fb_app_id":"12345"
+            ]
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [
+                    "fb_app_id":"12345"
+            ]
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res']
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api "com.nostra13.universalimageloader:universal-image-loader:$version_imageloader"
+    api "com.parse.bolts:bolts-tasks:$version_bolttask"//异步任务
+    api "androidx.annotation:annotation:$version_androidx_annotation"
+    api "androidx.appcompat:appcompat:$version_appcompat"
+    api "androidx.recyclerview:recyclerview:$version_recyclerview"
+
+    api "com.alibaba:fastjson:$version_alibaba_fastjson"
+
+
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+android.libraryVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = getProductName() + "_${project.android.defaultConfig.versionName}" + '.aar'
+    }
+}
+
+configurations.all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
+//
+//apply from: '../gradle_mvn_push.gradle'
+//apply from: '../gradle_github_push.gradle'
+//
+

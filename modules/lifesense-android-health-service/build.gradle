@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+def getProductName() {
+    return "lifesense-android-health-service"
+}
+android {
+    compileSdkVersion Integer.valueOf("$COMPILESDKVERSION")
+    buildToolsVersion "$BUILDTOOLSVERSION"
+
+    defaultConfig {
+        minSdkVersion Integer.valueOf("$MINSDKVERSION")
+        targetSdkVersion Integer.valueOf("$TARGETSDKVERSION")
+        versionCode Integer.valueOf("$VERSIONCODE")
+        versionName "$VERSIONNAME"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    api "org.apache.commons:commons-lang3:$version_lang3"
+    api "org.apache.commons:commons-collections4:$version_collections4"
+    api project(':modules:lifesense-android-common-service')
+    api "androidx.annotation:annotation:$version_androidx_annotation"
+    api "androidx.appcompat:appcompat:$version_appcompat"
+    api "androidx.recyclerview:recyclerview:$version_recyclerview"
+    api 'com.contrarywind:Android-PickerView:4.1.9'
+    api 'com.annimon:stream:1.2.1'
+    api 'com.google.guava:guava:19.0'
+    api 'io.reactivex.rxjava2:rxjava:2.2.8'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    compile 'com.hannesdorfmann.fragmentargs:annotation:4.0.0-RC1'
+    annotationProcessor 'com.hannesdorfmann.fragmentargs:processor:4.0.0-RC1'
+}
+android.libraryVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = getProductName() + "_${project.android.defaultConfig.versionName}" + '.aar'
+    }
+}

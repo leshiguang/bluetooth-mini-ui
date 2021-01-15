@@ -1,0 +1,4 @@
+include ':modules:lifesense-android-health-service'
+include ':modules:lifesense-android-common-service'
+include ':app'
+rootProject.name = "MiniBleSdkDemo"
