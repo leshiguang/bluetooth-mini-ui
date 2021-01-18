@@ -52,6 +52,7 @@ dependencies {
     api 'com.google.guava:guava:19.0'
     api 'io.reactivex.rxjava2:rxjava:2.2.8'
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    compile 'com.alibaba:fastjson:1.2.73'
     compile 'com.hannesdorfmann.fragmentargs:annotation:4.0.0-RC1'
     annotationProcessor 'com.hannesdorfmann.fragmentargs:processor:4.0.0-RC1'
 }

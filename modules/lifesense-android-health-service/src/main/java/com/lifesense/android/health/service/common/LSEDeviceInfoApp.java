@@ -6,12 +6,14 @@ import android.os.Parcelable;
 
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 
+import java.io.Serializable;
+
 
 /**
  * Created by lexin on 17/3/20.
  */
 
-public class LSEDeviceInfoApp implements Comparable, Parcelable {
+public class LSEDeviceInfoApp implements Comparable, Serializable {
 
     private DeviceInfo mLSEDeviceInfo;
 
@@ -84,20 +86,6 @@ public class LSEDeviceInfoApp implements Comparable, Parcelable {
         }
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(this.mLSEDeviceInfo, flags);
-        dest.writeString(this.deviceId);
-        dest.writeString(this.deviceName);
-        dest.writeString(this.macAddress);
-        dest.writeInt(this.rssi);
-    }
-
     public LSEDeviceInfoApp() {
     }
 
@@ -108,18 +96,6 @@ public class LSEDeviceInfoApp implements Comparable, Parcelable {
         this.macAddress = in.readString();
         this.rssi = in.readInt();
     }
-
-    public static final Creator<LSEDeviceInfoApp> CREATOR = new Creator<LSEDeviceInfoApp>() {
-        @Override
-        public LSEDeviceInfoApp createFromParcel(Parcel source) {
-            return new LSEDeviceInfoApp(source);
-        }
-
-        @Override
-        public LSEDeviceInfoApp[] newArray(int size) {
-            return new LSEDeviceInfoApp[size];
-        }
-    };
 
     @Override
     public String toString() {

@@ -9,6 +9,7 @@ import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.BR;
+import com.lifesense.android.health.service.common.fragment.argsbuilder.SerializableArgsBuilder;
 import com.lifesense.android.health.service.common.ui.BaseFragment;
 import com.lifesense.android.health.service.devicebind.ui.vm.ConnectSearchViewModel;
 import com.lifesense.android.health.service.util.DeviceUtils;
@@ -22,9 +23,9 @@ import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
 public class DeviceSuccessFragment extends BaseFragment {
     @Arg(key = "IMG_URL")
     String imgUrl;
-    @Arg(key = "DEVICE_INFO_APP")
+    @Arg(key = "DEVICE_INFO_APP", bundler = SerializableArgsBuilder.class)
     LSEDeviceInfoApp lseDeviceInfoApp;
-    @Arg(key = "DEVICE_INFO")
+    @Arg(key = "DEVICE_INFO", bundler = SerializableArgsBuilder.class)
     DeviceInfo device;
 
     @Override

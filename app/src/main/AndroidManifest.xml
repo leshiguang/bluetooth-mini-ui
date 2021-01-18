@@ -22,7 +22,7 @@
 
     <application
         android:allowBackup="true"
-        android:label="test"
+        android:label="Bluetooth Demo"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"

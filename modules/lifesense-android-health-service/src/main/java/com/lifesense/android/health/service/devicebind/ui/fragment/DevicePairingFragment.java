@@ -5,6 +5,7 @@ import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.R;
+import com.lifesense.android.health.service.common.fragment.argsbuilder.SerializableArgsBuilder;
 import com.lifesense.android.health.service.common.ui.BaseFragment;
 import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
 
@@ -15,7 +16,7 @@ import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
 public class DevicePairingFragment extends BaseFragment {
     @Arg(key = "IMG_URL")
     String imgUrl;
-    @Arg(key = "DEVICE_INFO")
+    @Arg(key = "DEVICE_INFO", bundler = SerializableArgsBuilder.class)
     LSEDeviceInfoApp deviceInfo;
 
     @Override

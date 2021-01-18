@@ -43,7 +43,7 @@ public class ConfigViewModel<T extends AbstractConfig> extends BaseViewModel {
 
     @Override
     public void init(AppCompatActivity context) {
-        deviceInfo.setValue(context.getIntent().getParcelableExtra("deviceInfo"));
+        deviceInfo.setValue((DeviceInfo) context.getIntent().getSerializableExtra("deviceInfo"));
         fetchConfigs();
     }
 
@@ -57,7 +57,14 @@ public class ConfigViewModel<T extends AbstractConfig> extends BaseViewModel {
             return;
         }
         Class<T> actualTypeArgument = (Class<T>) actualTypeArguments[0];
-        List<T> data = (List<T>) BleDeviceManager.getDefaultManager().getConfigs(deviceInfo.getValue().getMac(), actualTypeArgument);
+        List<T> data = null;
+
+        try {
+            data = (List<T>) BleDeviceManager.getDefaultManager().getConfigs(deviceInfo.getValue().getMac(), actualTypeArgument);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (!CollectionUtils.isEmpty(data)) {
             setUpdateConfig(data.get(0));
             setConfigs(data);

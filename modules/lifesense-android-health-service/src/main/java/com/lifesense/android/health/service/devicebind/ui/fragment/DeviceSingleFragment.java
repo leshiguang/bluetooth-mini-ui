@@ -12,6 +12,7 @@ import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.model.enums.BindState;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.BR;
+import com.lifesense.android.health.service.common.fragment.argsbuilder.SerializableArgsBuilder;
 import com.lifesense.android.health.service.common.ui.BaseFragment;
 import com.lifesense.android.health.service.devicebind.ui.vm.ConnectSearchViewModel;
 import com.lifesense.android.health.service.R;
@@ -23,7 +24,7 @@ import com.lifesense.android.health.service.util.ToastUtil;
  */
 @FragmentWithArgs
 public class DeviceSingleFragment extends BaseFragment {
-    @Arg(key = "DEVICE_INFO_APP")
+    @Arg(key = "DEVICE_INFO_APP", bundler = SerializableArgsBuilder.class)
     LSEDeviceInfoApp lseDeviceInfoApp;
     private ConnectSearchViewModel viewModel;
 

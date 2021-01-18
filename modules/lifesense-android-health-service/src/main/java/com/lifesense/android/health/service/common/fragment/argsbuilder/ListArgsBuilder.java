@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class ListArgsBuilder implements ArgsBundler<ArrayList> {
     @Override
     public void put(String key, ArrayList value, Bundle bundle) {
-        bundle.putParcelableArrayList(key,value);
+        bundle.putSerializable(key,value);
     }
 
     @Override
     public <V extends ArrayList> V get(String key, Bundle bundle) {
-        return (V)bundle.getParcelableArrayList(key);
+        return (V)bundle.getSerializable(key);
     }
 }

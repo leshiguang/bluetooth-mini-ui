@@ -9,6 +9,7 @@ import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.health.service.R;
+import com.lifesense.android.health.service.common.fragment.argsbuilder.SerializableArgsBuilder;
 import com.lifesense.android.health.service.common.ui.BaseFragment;
 import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
 import com.lifesense.android.health.service.databinding.ScaleFragmentDeviceInputCodeBinding;
@@ -21,7 +22,7 @@ import com.lifesense.android.health.service.devicebind.widget.SecurityCodeView;
 @FragmentWithArgs
 public class DeviceInputCodeFragment extends BaseFragment {
     private final int TIME_OUT_TIME = 55000;
-    @Arg(key = "DEVICE_INFO_APP")
+    @Arg(key = "DEVICE_INFO_APP", bundler = SerializableArgsBuilder.class)
     LSEDeviceInfoApp lseDeviceInfoApp;
     private Handler timeoutHandler = new Handler(Looper.getMainLooper());
     private ConnectSearchViewModel viewModel;
