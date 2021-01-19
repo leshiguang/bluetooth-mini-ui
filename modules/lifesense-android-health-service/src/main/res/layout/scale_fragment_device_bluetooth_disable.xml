@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.lifesense.android.health.service.devicebind.widget.MediumTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="44dip"
-        android:text="@string/scale_device_bluetooth_no_open"
-        android:textColor="#414141"
-        android:textSize="32dp" />
+    <data>
 
-    <ImageView
-        android:layout_width="100dip"
-        android:layout_height="100dip"
-        android:layout_gravity="center"
-        app:srcCompat="@mipmap/scale_ic_bluetooth" />
-</FrameLayout>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.lifesense.android.health.service.devicebind.widget.MediumTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="44dip"
+            android:text="@string/scale_device_bluetooth_no_open"
+            android:textColor="#414141"
+            android:textSize="32dp" />
+
+        <ImageView
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:layout_gravity="center"
+            app:srcCompat="@mipmap/scale_ic_bluetooth" />
+    </FrameLayout>
+</layout>
