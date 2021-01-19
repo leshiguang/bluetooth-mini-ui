@@ -43,4 +43,9 @@ public class HeartRateAlertConfigViewModel extends ConfigViewModel<HeartRateAler
             updateConfig();
         });
     }
+
+    @Override
+    public String getTitleStr() {
+        return "心率预警设置";
+    }
 }

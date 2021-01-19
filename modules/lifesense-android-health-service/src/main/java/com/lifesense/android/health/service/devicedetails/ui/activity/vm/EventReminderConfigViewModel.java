@@ -81,4 +81,9 @@ public class EventReminderConfigViewModel extends ConfigViewModel<EventReminder>
             dialogFragment.show(((FragmentActivity)context).getSupportFragmentManager());
         }
     }
+
+    @Override
+    public String getTitleStr() {
+        return "事件提醒";
+    }
 }
