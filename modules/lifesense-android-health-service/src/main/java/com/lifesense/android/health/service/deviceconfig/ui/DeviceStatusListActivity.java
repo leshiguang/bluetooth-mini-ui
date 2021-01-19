@@ -78,12 +78,7 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
 
     private void initBleSDK() {
         //静默登录
-        Consumer receiver = new Consumer<List<AbstractMeasureData>>() {
-            @Override
-            public void accept(List<AbstractMeasureData> abstractMeasureData) {
-                Log.i("Data", JSON.toJSONString(abstractMeasureData));
-            }
-        };
+        Consumer receiver = (Consumer<List<AbstractMeasureData>>) abstractMeasureData -> Log.i("Data", JSON.toJSONString(abstractMeasureData));
 
         BleDeviceManager.getDefaultManager().init(this, receiver,"com.leshiguang.saas.rbac.demo.appid");
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);

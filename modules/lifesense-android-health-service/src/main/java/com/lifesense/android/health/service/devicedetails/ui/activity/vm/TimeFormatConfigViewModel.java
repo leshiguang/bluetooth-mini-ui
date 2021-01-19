@@ -3,10 +3,11 @@ package com.lifesense.android.health.service.devicedetails.ui.activity.vm;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.common.collect.Lists;
 import com.lifesense.android.ble.core.application.model.config.TimeFormat;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.TimeFormatRvAdapter;
+
+import java.util.Arrays;
 
 /**
  * Create by qwerty
@@ -18,7 +19,7 @@ public class TimeFormatConfigViewModel extends ConfigViewModel<TimeFormat>{
     public void init(AppCompatActivity context) {
         super.init(context);
         TimeFormatRvAdapter adapter = new TimeFormatRvAdapter();
-        adapter.setItems(Lists.newArrayList(0, 1));
+        adapter.setItems(Arrays.asList(0, 1));
         TimeFormat timeFormat = getUpdateConfig().getValue();
         adapter.setSelectedItem(timeFormat.getType());
         adapter.setSelectListener((view, pos) -> {

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.common.collect.Lists;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;
@@ -20,6 +19,7 @@ import com.lifesense.android.health.service.devicebind.ui.fragment.DeviceSingleF
 import com.lifesense.android.health.service.devicebind.ui.fragment.DeviceSuccessFragmentBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,7 +27,7 @@ import java.util.List;
  * Create on 2020/12/29
  **/
 public class ConnectSearchViewModel extends BaseViewModel {
-    private MutableLiveData<Fragment> currentFragment = new MutableLiveData<Fragment>();
+    private MutableLiveData<Fragment> currentFragment = new MutableLiveData<>();
     private MutableLiveData<String> title = new MutableLiveData<>();
 
     @Override
@@ -60,15 +60,15 @@ public class ConnectSearchViewModel extends BaseViewModel {
     }
 
     public void bind(LSEDeviceInfoApp deviceInfoApp) {
-        executeOp(Op.BIND, Lists.newArrayList(deviceInfoApp));
+        executeOp(Op.BIND, Arrays.asList(deviceInfoApp));
     }
 
     public void bindSuccess(LSEDeviceInfoApp deviceInfoApp) {
-        executeOp(Op.BIND_SUCCESS, Lists.newArrayList(deviceInfoApp));
+        executeOp(Op.BIND_SUCCESS, Arrays.asList(deviceInfoApp));
     }
 
     public void bindFail(LSEDeviceInfoApp deviceInfoApp) {
-        executeOp(Op.BIND_FAIL, Lists.newArrayList(deviceInfoApp));
+        executeOp(Op.BIND_FAIL, Arrays.asList(deviceInfoApp));
     }
 
     public void show(List<LSEDeviceInfoApp> deviceInfoAppList) {
@@ -99,7 +99,7 @@ public class ConnectSearchViewModel extends BaseViewModel {
     }
 
     public void showInputCode(LSEDeviceInfoApp deviceInfoApp) {
-        executeOp(Op.INPUT_CODE, Lists.newArrayList(deviceInfoApp));
+        executeOp(Op.INPUT_CODE, Arrays.asList(deviceInfoApp));
     }
 
     public void cancelBind() {

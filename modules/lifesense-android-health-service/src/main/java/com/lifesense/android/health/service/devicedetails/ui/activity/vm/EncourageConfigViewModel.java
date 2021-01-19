@@ -10,10 +10,10 @@ import androidx.lifecycle.Transformations;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.google.common.collect.Lists;
 import com.lifesense.android.ble.core.application.model.config.TargetEncourage;
 import com.lifesense.android.health.service.devicedetails.utils.OptionPickerUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -66,7 +66,7 @@ public class EncourageConfigViewModel extends ConfigViewModel<TargetEncourage> {
     }
 
     private void showEncourageTypePicker(Context context) {
-        List<String> encourageTextList = Lists.newArrayList("步数", "卡路里", "距离");
+        List<String> encourageTextList = Arrays.asList("步数", "卡路里", "距离");
         OptionsPickerView optionsPickerView = new OptionsPickerBuilder(context, (options1, options2, options3, v) -> {
             setTargetType(options1 + 1);
         }).build();

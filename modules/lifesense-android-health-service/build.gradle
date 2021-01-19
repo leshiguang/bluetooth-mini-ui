@@ -39,7 +39,7 @@ android {
 
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ["*.jar"])
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
     api "org.apache.commons:commons-lang3:$version_lang3"
     api "org.apache.commons:commons-collections4:$version_collections4"

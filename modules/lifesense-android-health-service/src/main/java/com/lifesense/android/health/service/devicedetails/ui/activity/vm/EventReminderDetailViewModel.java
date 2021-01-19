@@ -9,18 +9,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.Transformations;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.google.common.collect.Lists;
-import com.lifesense.android.ble.core.application.model.VibrationMode;
 import com.lifesense.android.ble.core.application.model.config.EventReminder;
 import com.lifesense.android.ble.core.application.model.enums.Day;
+import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
 import com.lifesense.android.health.service.devicedetails.utils.OptionPickerUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.lifesense.android.health.service.devicedetails.ui.activity.EventReminderDetailActivity.DATA_EXTRA;
@@ -157,7 +156,7 @@ public class EventReminderDetailViewModel extends ConfigViewModel<EventReminder>
     }
 
     private void showVibrationModePicker(Context context) {
-        List<String> mode = Lists.newArrayList("持续震动","间歇震动，震动强度不变","间歇震动，震动强度由小变大","间歇震动，震动强度由大变小","震动强度大小循环");
+        List<String> mode = Arrays.asList("持续震动","间歇震动，震动强度不变","间歇震动，震动强度由小变大","间歇震动，震动强度由大变小","震动强度大小循环");
         OptionsPickerView pickerView = new OptionsPickerBuilder(context, (options1, options2, options3, v) -> {
             EventReminder eventReminder = getUpdateConfig().getValue();
             eventReminder.setVibrationMode(VibrationMode.values()[options1]);

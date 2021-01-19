@@ -4,10 +4,10 @@ import android.widget.CompoundButton;
 
 
 import com.lifesense.android.ble.core.application.BleDeviceManager;
-import com.lifesense.android.ble.core.application.model.VibrationMode;
 import com.lifesense.android.ble.core.application.model.config.Call;
 import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 
+import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.ItemType;
 import com.lifesense.android.health.service.util.ToastUtil;

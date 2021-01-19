@@ -1,10 +1,10 @@
 package com.lifesense.android.health.service.devicedetails.utils;
 
-import com.lifesense.android.ble.core.application.model.VibrationMode;
 import com.lifesense.android.ble.core.application.model.config.Call;
 import com.lifesense.android.ble.core.application.model.config.DialPlate;
 import com.lifesense.android.ble.core.application.model.config.Page;
 import com.lifesense.android.ble.core.application.model.enums.Day;
+import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
 
 /**
  * Create by qwerty

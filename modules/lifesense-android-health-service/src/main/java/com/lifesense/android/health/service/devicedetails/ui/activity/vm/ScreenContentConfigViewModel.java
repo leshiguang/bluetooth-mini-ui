@@ -3,10 +3,11 @@ package com.lifesense.android.health.service.devicedetails.ui.activity.vm;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.common.collect.Lists;
 import com.lifesense.android.ble.core.application.model.config.Page;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.PedometerScreenContentRvAdapter;
+
+import java.util.Arrays;
 
 /**
  * Create by qwerty
@@ -19,7 +20,7 @@ public class ScreenContentConfigViewModel extends ConfigViewModel<Page>{
         super.init(context);
         PedometerScreenContentRvAdapter adapter = new PedometerScreenContentRvAdapter();
         adapter.setSelectedPage(getUpdateConfig().getValue().getPageTypes());
-        adapter.setItems(Lists.newArrayList(Page.PageType.values()));
+        adapter.setItems(Arrays.asList(Page.PageType.values()));
         adapter.setOnAdapterListener(new PedometerScreenContentRvAdapter.OnAdapterListener() {
             @Override
             public void onCheckedChange() {
