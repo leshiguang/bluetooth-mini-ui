@@ -22,10 +22,4 @@ public class MessageReminderSettingActivity extends BaseSettingActivity<MessageR
     public int getVariableId() {
         return BR.viewModel;
     }
-
-    @Override
-    protected void initViews(Bundle savedInstanceState) {
-        super.initViews(savedInstanceState);
-        setTitle("消息提醒设置");
-    }
 }

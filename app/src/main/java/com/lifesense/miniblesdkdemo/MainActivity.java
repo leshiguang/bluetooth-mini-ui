@@ -5,10 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import com.lifesense.android.health.service.common.ui.BaseActivity;
 import com.lifesense.android.health.service.deviceconfig.ui.DeviceStatusListActivity;
+import com.lifesense.android.health.service.util.ToastUtil;
 import com.lifesense.utils.ImageUtil;
 
 public class MainActivity extends BaseActivity {
@@ -32,10 +31,23 @@ public class MainActivity extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 200) {
-            if (checkPermission()) {
-                startActivity(new Intent(this, DeviceStatusListActivity.class));
-                finish();
+            if(grantResults != null) {
+                boolean flag = true;
+                String leakPermission = "";
+                for (int i = 0;i < grantResults.length; i++) {
+                    if(grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        leakPermission = permissions[i];
+                        flag = false;
+                    }
+                }
+                if(flag) {
+                    startActivity(new Intent(this, DeviceStatusListActivity.class));
+                    finish();
+                } else {
+                    ToastUtil.showCenterShowToast(this,"缺少权限:" + leakPermission);
+                }
             }
+
         }
     }
 

@@ -73,4 +73,9 @@ public class SilenceConfigViewModel extends ConfigViewModel<Silence> {
             updateConfig();
         });
     }
+
+    @Override
+    public String getTitleStr() {
+        return "勿扰模式";
+    }
 }

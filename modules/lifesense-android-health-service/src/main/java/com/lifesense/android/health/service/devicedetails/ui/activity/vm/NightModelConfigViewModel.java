@@ -58,4 +58,9 @@ public class NightModelConfigViewModel extends ConfigViewModel<NightMode> {
             updateConfig();
         });
     }
+
+    @Override
+    public String getTitleStr() {
+        return "夜间模式";
+    }
 }

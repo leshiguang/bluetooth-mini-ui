@@ -13,6 +13,7 @@ import androidx.lifecycle.Transformations;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.google.common.collect.Lists;
 import com.lifesense.android.ble.core.application.model.config.EventReminder;
 import com.lifesense.android.ble.core.application.model.enums.Day;
 import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
@@ -247,5 +248,10 @@ public class EventReminderDetailViewModel extends ConfigViewModel<EventReminder>
         }
         // 异常状态，返回一个大于最大长度的值 表明没有可用的index
         return MAX_INDEX + 1;
+    }
+
+    @Override
+    public String getTitleStr() {
+        return "事件提醒设置";
     }
 }

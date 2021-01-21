@@ -53,6 +53,7 @@ public class HeartSwitchItem extends SettingItem<HeartRateSmartSwitch> {
         BleDeviceManager.getDefaultManager().updateConfig(deviceInfo.getMac(), heartRateSwitch, new Consumer<ConfigStatus>() {
             @Override
             public void accept(ConfigStatus configStatus) throws Exception {
+                fetchItemConfigs();
                 if (configStatus == ConfigStatus.SUCCESS) {
                     if (isChecked) {
                         ToastUtil.showCustomCenterShowToast(context,context.getString(R.string.scale_open_heart_rate_msg));

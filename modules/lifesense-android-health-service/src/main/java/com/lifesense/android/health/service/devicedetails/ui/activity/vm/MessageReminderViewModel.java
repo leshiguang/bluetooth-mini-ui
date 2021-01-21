@@ -70,4 +70,9 @@ public class MessageReminderViewModel extends ConfigViewModel<Call> {
             return false;
         }
     }
+
+    @Override
+    public String getTitleStr() {
+        return "消息提醒设置";
+    }
 }
