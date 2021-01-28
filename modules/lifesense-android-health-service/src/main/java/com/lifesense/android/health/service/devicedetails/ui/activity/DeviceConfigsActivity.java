@@ -27,7 +27,7 @@ public class DeviceConfigsActivity extends BaseDataBindingActivity<DeviceConfigs
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 }

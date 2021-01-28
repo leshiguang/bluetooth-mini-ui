@@ -1,80 +1,104 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lifesense.android.health.service" >
-
-
+    package="com.lifesense.android.health.service">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-   <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS" />
     <!--  读取短信权限 -->
-    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS" />
     <!--  读取联系人  -->
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!--  拨打电话  -->
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 
     <!-- Android6.0 蓝牙扫描才需要-->
-    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application>
 
 
-        <activity android:name="com.lifesense.android.health.service.devicebind.ui.activity.DeviceConnectSearchActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.lifesense.android.health.service.deviceconfig.ui.DeviceStatusListActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.lifesense.android.health.service.deviceota.TestDeviceUpgradeActivity"
+        <activity
+            android:name="com.lifesense.android.health.service.devicebind.ui.activity.DeviceConnectSearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.lifesense.android.health.service.deviceconfig.ui.DeviceStatusListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.lifesense.android.health.service.deviceota.TestDeviceUpgradeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.lifesense.android.health.service.devicedetails.ui.activity.DeviceConfigsActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name="com.lifesense.android.health.service.devicedetails.ui.activity.DeviceUnitSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.lifesense.android.health.service.deviceota.ui.activity.DeviceUpgradeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.EncourageSingleSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.DialPeaceSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.HeartRateAlertSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.MessageReminderSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.TimeFormatSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.NightModeSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.SilenceSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".devicedetails.ui.activity.ScreenContentSettingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".devicedetails.ui.activity.EventReminderListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".devicedetails.ui.activity.EventReminderDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".devicedetails.ui.activity.CustomMessageReminderActivity"
             android:screenOrientation="portrait"
-            >
-        </activity>
+            />
 
-        <activity android:name="com.lifesense.android.health.service.devicedetails.ui.activity.DeviceConfigsActivity" android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:host="showDeviceDetailsView"
-                    android:scheme="lswearable" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="com.lifesense.android.health.service.devicedetails.ui.activity.DeviceUnitSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.lifesense.android.health.service.deviceota.ui.activity.DeviceUpgradeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.EncourageSingleSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.DialPeaceSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.HeartRateAlertSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.MessageReminderSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.TimeFormatSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.NightModeSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.SilenceSettingActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.ScreenContentSettingActivity" android:screenOrientation="portrait"/>
         <service
             android:name="com.lifesense.android.ble.core.application.service.DefaultNotificationListenerService"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
-
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
-
-
-
-        <activity android:name=".devicedetails.ui.activity.EventReminderListActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".devicedetails.ui.activity.EventReminderDetailActivity" android:screenOrientation="portrait"/>
-
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 </manifest>

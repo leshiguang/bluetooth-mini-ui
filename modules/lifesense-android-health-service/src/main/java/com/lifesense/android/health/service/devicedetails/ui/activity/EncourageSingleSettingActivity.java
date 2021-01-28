@@ -17,7 +17,7 @@ public class EncourageSingleSettingActivity extends BaseSettingActivity<Encourag
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 }

@@ -12,6 +12,7 @@ import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.serializer.AbstractConfig;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.devicedetails.item.builder.ItemType;
+import com.lifesense.android.health.service.devicedetails.repository.ConfigsRepository;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -105,7 +106,7 @@ public abstract class SettingItem<T extends AbstractConfig> extends BaseObservab
             return;
         }
         Type actualTypeArgument = actualTypeArguments[0];
-        configs = (List<T>) BleDeviceManager.getDefaultManager().getConfigs(deviceInfo.getMac(), (Class<? extends AbstractConfig>) actualTypeArgument);
+        configs = (List<T>) ConfigsRepository.getConfigs(deviceInfo.getMac(), (Class<? extends AbstractConfig>) actualTypeArgument);
     }
 
 

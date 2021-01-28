@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.lifesense.android.health.service.devicedetails.ui.activity.vm.CustomMessageReminderViewModel" />
+        <import type="com.lifesense.android.health.service.devicedetails.item.builder.ItemType"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.lifesense.android.health.service.common.ui.BaseActivity"
+        android:orientation="vertical">
+        <com.lifesense.android.health.service.devicedetails.widget.CellView
+            android:id="@+id/reminder_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:scale_showSwitch="true"
+            app:scale_showRightArrow="false"
+            app:title="@{`打开提醒`}"
+            app:openSwitch="@{viewModel.enable}"
+            android:onCheckedChanged="@{(view, isChecked)->viewModel.onSwitchChanged(view, isChecked)}"
+            app:cellType="@{ItemType.Switch}" />
+        <EditText
+            android:id="@+id/et_reminder_content"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:hint="@{`请输入包名`}"
+            android:paddingHorizontal="@dimen/scale_dp_24"
+            android:gravity="start|top"
+            android:textSize="@dimen/sp_14"
+            android:background="@null"
+            android:paddingTop="@dimen/dp_10"
+            android:text="@={viewModel.packageName}"
+            />
+
+    </LinearLayout>
+</layout>

@@ -17,10 +17,11 @@ import com.lifesense.android.health.service.devicebind.ui.vm.ConnectSearchViewMo
 import com.lifesense.android.health.service.util.DialogUtil;
 import com.lifesense.android.health.service.util.SystemUtil;
 import com.lifesense.android.health.service.util.dialog.DialogConfig;
-public class DeviceConnectSearchActivity extends BaseDataBindingActivity<ConnectSearchViewModel> {
-    private BroadcastReceiver mReceiver;
 
-    public static Intent makeIntentWithDisplayProduct(Context context) {
+public class DeviceConnectSearchActivity extends BaseDataBindingActivity<ConnectSearchViewModel> {
+    private BroadcastReceiver receiver;
+
+    public static Intent makeIntent(Context context) {
         Intent intent = new Intent(context, DeviceConnectSearchActivity.class);
         return intent;
     }
@@ -31,7 +32,7 @@ public class DeviceConnectSearchActivity extends BaseDataBindingActivity<Connect
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 
@@ -46,10 +47,11 @@ public class DeviceConnectSearchActivity extends BaseDataBindingActivity<Connect
         super.onResume();
         checkBlePermission();
     }
+
     private void registerBluetoothStateReceivers() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-        mReceiver = new BroadcastReceiver() {
+        receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
@@ -74,15 +76,26 @@ public class DeviceConnectSearchActivity extends BaseDataBindingActivity<Connect
                 }
             }
         };
-        registerReceiver(mReceiver, filter);
+        registerReceiver(receiver, filter);
     }
 
     private void unregisterBluetoothStateReceivers() {
-        if (mReceiver != null) {
-            unregisterReceiver(mReceiver);
+        if (receiver != null) {
+            unregisterReceiver(receiver);
         }
     }
 
+    private void checkBlePermission() {
+        if (!SystemUtil.isProviderEnabledGps(this)) {
+            showGpsDialog();
+            return;
+        }
+
+        if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
+            showEnableBlueToothDialog();
+            return;
+        }
+    }
 
     private void showEnableBlueToothDialog() {
         String content = getString(R.string.scale_device_open_bluetooth_to_lifesense);
@@ -134,15 +147,4 @@ public class DeviceConnectSearchActivity extends BaseDataBindingActivity<Connect
         }
     }
 
-    private void checkBlePermission() {
-        if (!SystemUtil.isProviderEnabledGps(this)) {
-            showGpsDialog();
-            return;
-        }
-
-        if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
-            showEnableBlueToothDialog();
-            return;
-        }
-    }
 }

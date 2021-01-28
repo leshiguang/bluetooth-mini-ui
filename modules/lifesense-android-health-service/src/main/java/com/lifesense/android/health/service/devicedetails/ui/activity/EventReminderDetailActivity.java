@@ -14,7 +14,7 @@ public class EventReminderDetailActivity extends BaseSettingActivity<EventRemind
     public static final String DATA_EXTRA = "data";
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 

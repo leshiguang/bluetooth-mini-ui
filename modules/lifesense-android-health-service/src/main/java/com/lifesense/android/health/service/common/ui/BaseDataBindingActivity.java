@@ -43,7 +43,7 @@ public abstract class BaseDataBindingActivity<VM extends BaseViewModel> extends 
         }
         viewModel.init(this);
         //绑定数据
-        viewDataBinding.setVariable(getVariableId(), viewModel);
+        viewDataBinding.setVariable(getViewModelVariableId(), viewModel);
     }
 
     /**
@@ -51,6 +51,6 @@ public abstract class BaseDataBindingActivity<VM extends BaseViewModel> extends 
      *
      * @return
      */
-    public abstract int getVariableId();
+    public abstract int getViewModelVariableId();
 
 }

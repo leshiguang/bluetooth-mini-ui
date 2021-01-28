@@ -18,7 +18,7 @@ public class HeartRateAlertSettingActivity extends BaseSettingActivity<HeartRate
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 }

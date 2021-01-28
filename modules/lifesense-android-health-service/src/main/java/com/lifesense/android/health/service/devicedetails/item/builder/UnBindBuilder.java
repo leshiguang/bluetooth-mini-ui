@@ -2,13 +2,10 @@ package com.lifesense.android.health.service.devicedetails.item.builder;
 
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.lifesense.android.ble.core.application.BleDeviceManager;
-import com.lifesense.android.ble.core.valueobject.DeviceInfo;
-import com.lifesense.android.health.service.devicedetails.item.SettingFactory;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.widget.AlertDialogFragment;
+import com.lifesense.android.health.service.prefs.PreferenceStorage;
 import com.lifesense.android.health.service.util.TaskScheduler;
 import com.lifesense.android.health.service.util.ToastUtil;
 
@@ -36,6 +33,7 @@ public class UnBindBuilder extends SettingItem {
                 .setMsg("确认解除绑定?")
                 .setPositiveClickListener("", v1 -> TaskScheduler.getInstance().exectue(() -> {
                     if (BleDeviceManager.getDefaultManager().unBind(deviceInfo.getMac())) {
+                        PreferenceStorage.removeBondDevice(deviceInfo.getMac());
                         if (!(context.isDestroyed() || context.isFinishing())) {
                             context.runOnUiThread(() -> {
                                 alertDialogFragment.dismiss();

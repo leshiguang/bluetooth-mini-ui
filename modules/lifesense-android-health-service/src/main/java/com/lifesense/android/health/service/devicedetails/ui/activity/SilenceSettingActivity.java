@@ -20,7 +20,7 @@ public class SilenceSettingActivity extends BaseSettingActivity<SilenceConfigVie
 
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 

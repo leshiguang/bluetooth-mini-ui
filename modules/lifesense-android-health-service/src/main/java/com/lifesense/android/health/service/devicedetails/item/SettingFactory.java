@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.lifesense.android.ble.core.application.model.enums.DeviceType;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.devicedetails.item.builder.UnBindBuilder;
-import com.lifesense.android.health.service.devicedetails.item.builder.pedometer.CallReminderSwitchItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.DeviceNameBuilder;
 import com.lifesense.android.health.service.devicedetails.item.builder.FirmwareUpgradeBuilder;
 import com.lifesense.android.health.service.devicedetails.item.builder.pedometer.TargetEncourageItem;

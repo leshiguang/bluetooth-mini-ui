@@ -18,12 +18,14 @@ import java.util.List;
 
 /**
  * 手环页面显示
+ *
  * @author alexwu
  */
 public class PedometerScreenContentRvAdapter extends BaseDataBindingRvAdapter<ScaleItemScreenContentBinding, Page.PageType> implements DragSortItemTouchHelper.DragSortAdapter {
     private DragSortItemTouchHelper dragSortItemTouchHelper;
     private OnAdapterListener onAdapterListener;
     private List<Page.PageType> selectedPage = new ArrayList<>();
+
     public PedometerScreenContentRvAdapter() {
         dragSortItemTouchHelper = new DragSortItemTouchHelper(this);
     }
@@ -46,7 +48,7 @@ public class PedometerScreenContentRvAdapter extends BaseDataBindingRvAdapter<Sc
         holder.getBinding().setTitle(DataTransformUtil.getScreenText(pageType));
         holder.getBinding().checkbox.setOnClickListener(v -> {
             items.remove(pageType);
-            if(isChecked(pageType)) {
+            if (isChecked(pageType)) {
                 items.add(pageType);
                 selectedPage.remove(pageType);
             } else {
@@ -71,6 +73,14 @@ public class PedometerScreenContentRvAdapter extends BaseDataBindingRvAdapter<Sc
             return false;
         }
         Collections.swap(items, srcPoi, tarPoi);
+        List<Page.PageType> selectedPage = new ArrayList<>();
+        for (Page.PageType pageType : items) {
+            if (isChecked(pageType)) {
+                selectedPage.add(pageType);
+            }
+        }
+        this.selectedPage.clear();
+        this.selectedPage.addAll(selectedPage);
         notifyItemMoved(srcPoi, tarPoi);
         return true;
     }
@@ -133,7 +143,7 @@ public class PedometerScreenContentRvAdapter extends BaseDataBindingRvAdapter<Sc
 
     public void setSelectedPage(List<Page.PageType> selectedPage) {
         this.selectedPage = selectedPage;
-        if(items != null) {
+        if (items != null) {
             Collections.sort(items, (o1, o2) -> {
                 if (isChecked(o1) && !isChecked(o2)) {
                     return -1;
@@ -158,9 +168,9 @@ public class PedometerScreenContentRvAdapter extends BaseDataBindingRvAdapter<Sc
     @Override
     public void setItems(List<Page.PageType> items) {
         Collections.sort(items, (o1, o2) -> {
-            if(isChecked(o1) && !isChecked(o2)) {
+            if (isChecked(o1) && !isChecked(o2)) {
                 return -1;
-            } else if(!isChecked(o1) && isChecked(o2)) {
+            } else if (!isChecked(o1) && isChecked(o2)) {
                 return 1;
             } else {
                 return 0;

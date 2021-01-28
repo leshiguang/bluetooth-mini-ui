@@ -1,17 +1,9 @@
 package com.lifesense.android.health.service.deviceconfig.ui;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import com.alibaba.fastjson.JSON;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
@@ -21,6 +13,8 @@ import com.lifesense.android.ble.core.serializer.AbstractMeasureData;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingActivity;
 import com.lifesense.android.health.service.R;
+import com.lifesense.android.health.service.prefs.PreferenceStorage;
+
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
@@ -43,13 +37,14 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 
     @Override
     protected void preInitView() {
         super.preInitView();
+        PreferenceStorage.init(this);
         initBleSDK();
     }
 
@@ -80,7 +75,7 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
         //静默登录
         Consumer receiver = (Consumer<List<AbstractMeasureData>>) abstractMeasureData -> Log.i("Data", JSON.toJSONString(abstractMeasureData));
 
-        BleDeviceManager.getDefaultManager().init(this, receiver,"com.leshiguang.saas.rbac.demo.appid");
+        BleDeviceManager.getDefaultManager().init(this,"com.leshiguang.saas.rbac.demo.appid", PreferenceStorage.getBondedMac(),receiver);
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);
     }
 

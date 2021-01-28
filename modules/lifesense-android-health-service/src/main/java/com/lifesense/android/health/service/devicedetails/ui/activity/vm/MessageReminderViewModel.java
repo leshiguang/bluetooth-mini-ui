@@ -12,6 +12,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.lifesense.android.ble.core.application.model.config.Call;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
+import com.lifesense.android.health.service.devicedetails.ui.activity.CustomMessageReminderActivity;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.DeviceMessageReminderRvAdapter;
 
 /**
@@ -27,6 +28,11 @@ public class MessageReminderViewModel extends ConfigViewModel<Call> {
         super.init(context);
         DeviceMessageReminderRvAdapter adapter = new DeviceMessageReminderRvAdapter(getDeviceInfo().getValue().getMac());
         adapter.setItems(getConfigs().getValue());
+        adapter.setOnItemClickListener((view, position) -> {
+            Intent intent = new Intent(context, CustomMessageReminderActivity.class);
+            intent.putExtra("deviceInfo", getDeviceInfo().getValue());
+            context.startActivity(intent);
+        });
         this.adapter.setValue(adapter);
         boolean enable = false;
         String packageName = context.getPackageName();

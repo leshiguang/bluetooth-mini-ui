@@ -17,7 +17,7 @@ import com.lifesense.android.health.service.common.ui.BaseFragment;
 import com.lifesense.android.health.service.devicebind.ui.vm.ConnectSearchViewModel;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
-import com.lifesense.android.health.service.util.ToastUtil;
+import com.lifesense.android.health.service.prefs.PreferenceStorage;
 
 /**
  * 单设备展示
@@ -59,7 +59,8 @@ public class DeviceSingleFragment extends BaseFragment {
             public void onReceiveBindState(BindState bindState) {
                 if (bindState == BindState.BIND_SUCCESS) {
                     viewModel.bindSuccess(lseDeviceInfoApp);
-
+                    PreferenceStorage.addBondDevice(lseDeviceInfo.getMac());
+                    PreferenceStorage.cacheDeviceInfo(lseDeviceInfo.getMac(), lseDeviceInfo);
                 } else {
                     Log.w("bindState", bindState.name());
                     viewModel.bindFail(lseDeviceInfoApp);

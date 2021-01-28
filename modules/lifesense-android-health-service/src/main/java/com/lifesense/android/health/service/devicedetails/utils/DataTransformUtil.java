@@ -174,7 +174,10 @@ public class DataTransformUtil {
     }
 
     public static String getMessageTypeText(Call.ReminderType reminderType) {
-        String text = "";
+        String text = "自定义提醒";
+        if(reminderType == null) {
+            return text;
+        }
         switch (reminderType) {
             case SMS:
                 text="短信提醒";
@@ -187,6 +190,27 @@ public class DataTransformUtil {
                 break;
             case WECHAT:
                 text="微信提醒";
+                break;
+            case LINE:
+                text="Line";
+                break;
+            case GMAIL:
+                text="Gmail";
+                break;
+            case TWITTER:
+                text="Twitter";
+                break;
+            case FACEBOOK:
+                text="Facebook";
+                break;
+            case WHATSAPP:
+                text="WhatsApp";
+                break;
+            case KAKAOTALK:
+                text="Kakao Talk";
+                break;
+            case SEWELLNESS:
+                text="Sewellneess";
                 break;
 
         }

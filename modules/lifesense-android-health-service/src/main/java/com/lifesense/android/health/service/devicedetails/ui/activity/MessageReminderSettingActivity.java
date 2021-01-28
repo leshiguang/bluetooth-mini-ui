@@ -19,7 +19,7 @@ public class MessageReminderSettingActivity extends BaseSettingActivity<MessageR
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 }

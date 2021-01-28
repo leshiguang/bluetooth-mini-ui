@@ -17,7 +17,7 @@ public class TimeFormatSettingActivity extends BaseSettingActivity<TimeFormatCon
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 }

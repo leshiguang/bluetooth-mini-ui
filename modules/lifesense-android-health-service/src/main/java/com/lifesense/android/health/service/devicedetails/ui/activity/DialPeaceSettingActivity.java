@@ -12,7 +12,7 @@ import com.lifesense.android.health.service.devicedetails.ui.activity.vm.DialPla
  **/
 public class DialPeaceSettingActivity extends BaseSettingActivity<DialPlateConfigViewModel, DialPlate> {
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
     @Override

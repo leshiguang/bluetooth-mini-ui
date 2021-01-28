@@ -14,7 +14,7 @@ import com.lifesense.android.health.service.devicedetails.ui.activity.vm.ScreenC
 public class ScreenContentSettingActivity extends BaseSettingActivity<ScreenContentConfigViewModel, Page> {
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 

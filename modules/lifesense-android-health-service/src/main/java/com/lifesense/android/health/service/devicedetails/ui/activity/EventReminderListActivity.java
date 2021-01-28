@@ -18,7 +18,7 @@ public class EventReminderListActivity extends BaseSettingActivity<EventReminder
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 

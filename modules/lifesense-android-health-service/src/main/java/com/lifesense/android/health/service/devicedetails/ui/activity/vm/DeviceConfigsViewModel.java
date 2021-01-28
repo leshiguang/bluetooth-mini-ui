@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
 import com.lifesense.android.ble.core.application.BleDeviceManager;
+import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;
 import com.lifesense.android.health.service.devicedetails.item.SettingFactory;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.DeviceConfigsRvAdapter;
+import com.lifesense.android.health.service.prefs.PreferenceStorage;
 
 /**
  * Create by qwerty
@@ -19,7 +21,7 @@ public class DeviceConfigsViewModel extends BaseViewModel {
     public void init(AppCompatActivity activity) {
         String mac = activity.getIntent().getStringExtra(EXTRA_MAC);
         DeviceConfigsRvAdapter adapter = new DeviceConfigsRvAdapter();
-        adapter.setItems(SettingFactory.create(activity, BleDeviceManager.getDefaultManager().getDeviceInfoWithMac(mac)));
+        adapter.setItems(SettingFactory.create(activity, PreferenceStorage.getBondedDeviceInfoByMac(mac)));
         this.adapter.setValue(adapter);
     }
 

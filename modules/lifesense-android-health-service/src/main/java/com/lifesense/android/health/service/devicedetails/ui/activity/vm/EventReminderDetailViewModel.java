@@ -13,7 +13,6 @@ import androidx.lifecycle.Transformations;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.google.common.collect.Lists;
 import com.lifesense.android.ble.core.application.model.config.EventReminder;
 import com.lifesense.android.ble.core.application.model.enums.Day;
 import com.lifesense.android.ble.core.application.model.enums.VibrationMode;

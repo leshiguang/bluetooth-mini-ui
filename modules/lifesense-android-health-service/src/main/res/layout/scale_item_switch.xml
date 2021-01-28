@@ -9,6 +9,7 @@
             type="com.lifesense.android.health.service.devicedetails.ui.activity.adapter.DeviceMessageReminderRvAdapter" />
         <import type="com.lifesense.android.health.service.devicedetails.utils.DataTransformUtil"/>
         <import type="android.view.View"></import>
+        <import type="com.lifesense.android.ble.core.application.model.config.Call.ReminderType"/>
     </data>
     <LinearLayout
         android:id="@+id/item"
@@ -27,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|start"
                 android:textColor="@color/scale_black"
-                android:text="@{DataTransformUtil.getMessageTypeText(item.reminderType)}"
+                android:text="@{item.reminderType != ReminderType.CUSTOM ? DataTransformUtil.getMessageTypeText(item.reminderType) : item.appPackageName}"
                 android:textSize="@dimen/scale_cell_title_text_size"
 
                 />

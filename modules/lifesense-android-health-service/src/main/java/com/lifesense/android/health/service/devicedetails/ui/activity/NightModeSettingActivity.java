@@ -17,7 +17,7 @@ public class NightModeSettingActivity extends BaseSettingActivity<NightModelConf
     }
 
     @Override
-    public int getVariableId() {
+    public int getViewModelVariableId() {
         return BR.viewModel;
     }
 

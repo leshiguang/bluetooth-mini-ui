@@ -19,6 +19,7 @@ import com.lifesense.android.health.service.common.ui.BaseActivity;
 import com.lifesense.android.health.service.devicedetails.model.Unit;
 import com.lifesense.android.health.service.devicedetails.model.UnitCategory;
 import com.lifesense.android.health.service.devicedetails.model.WeightUnit;
+import com.lifesense.android.health.service.devicedetails.repository.ConfigsRepository;
 import com.lifesense.android.health.service.util.ToastUtil;
 
 import java.util.List;
@@ -62,7 +63,7 @@ public class DeviceUnitSettingActivity extends BaseActivity implements UnitChoic
     protected void initData(Bundle savedInstanceState) {
         mac = getIntent().getStringExtra(DEVICE_ID_EXTRA);
 
-        int netUnitType = Stream.of((List<WeightUnitConfig>) BleDeviceManager.getDefaultManager().getConfigs(mac, WeightUnitConfig.class)).findFirst().orElse(defaultWeightUnit()).getUnitType().getCommand();
+        int netUnitType = Stream.of((List<WeightUnitConfig>) ConfigsRepository.getConfigs(mac, WeightUnitConfig.class)).findFirst().orElse(defaultWeightUnit()).getUnitType().getCommand();
         unitChoiceRvAdapter.setChoiceWeightUnit(WeightUnit.getUnitByNetUnitType(netUnitType));
         unitRes[0] = netUnitType;
 

@@ -7,6 +7,7 @@ import com.lifesense.android.ble.core.application.model.config.Page;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.PedometerScreenContentRvAdapter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -20,7 +21,7 @@ public class ScreenContentConfigViewModel extends ConfigViewModel<Page>{
         super.init(context);
         PedometerScreenContentRvAdapter adapter = new PedometerScreenContentRvAdapter();
         adapter.setSelectedPage(getUpdateConfig().getValue().getPageTypes());
-        adapter.setItems(Arrays.asList(Page.PageType.values()));
+        adapter.setItems(new ArrayList<>(Arrays.asList(Page.PageType.values())));
         adapter.setOnAdapterListener(new PedometerScreenContentRvAdapter.OnAdapterListener() {
             @Override
             public void onCheckedChange() {

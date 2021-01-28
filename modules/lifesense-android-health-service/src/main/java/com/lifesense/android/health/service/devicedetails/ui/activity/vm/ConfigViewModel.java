@@ -12,6 +12,7 @@ import com.lifesense.android.ble.core.serializer.AbstractConfig;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;
+import com.lifesense.android.health.service.devicedetails.repository.ConfigsRepository;
 import com.lifesense.android.health.service.devicedetails.ui.activity.BaseSettingActivity;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -60,7 +61,7 @@ public class ConfigViewModel<T extends AbstractConfig> extends BaseViewModel {
         List<T> data = null;
 
         try {
-            data = (List<T>) BleDeviceManager.getDefaultManager().getConfigs(deviceInfo.getValue().getMac(), actualTypeArgument);
+            data = (List<T>) ConfigsRepository.getConfigs(deviceInfo.getValue().getMac(), actualTypeArgument);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,6 +139,9 @@ public class ConfigViewModel<T extends AbstractConfig> extends BaseViewModel {
         BleDeviceManager.getDefaultManager().updateConfig(deviceInfo.getValue().getMac(), config, new Consumer<ConfigStatus>() {
             @Override
             public void accept(ConfigStatus configStatus) throws Exception {
+                if(configStatus == ConfigStatus.SUCCESS) {
+                    ConfigsRepository.saveConfig(deviceInfo.getValue().getMac(),config);
+                }
                 ConfigViewModel.this.configStatus.postValue(configStatus);
             }
         });
@@ -145,9 +149,12 @@ public class ConfigViewModel<T extends AbstractConfig> extends BaseViewModel {
 
     public void deleteConfig(T config) {
         setDeleteConfig(config);
-        BleDeviceManager.getDefaultManager().deleteConfig(deviceInfo.getValue().getMac(), config, new Consumer<ConfigStatus>() {
+        BleDeviceManager.getDefaultManager().updateConfig(deviceInfo.getValue().getMac(), config, new Consumer<ConfigStatus>() {
             @Override
             public void accept(ConfigStatus configStatus) throws Exception {
+                if(configStatus == ConfigStatus.SUCCESS) {
+                    ConfigsRepository.deleteConfig(deviceInfo.getValue().getMac(),config);
+                }
                 ConfigViewModel.this.configStatus.postValue(configStatus);
             }
         });

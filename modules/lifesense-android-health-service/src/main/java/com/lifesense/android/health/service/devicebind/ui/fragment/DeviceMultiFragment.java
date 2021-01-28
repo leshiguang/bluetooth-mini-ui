@@ -1,7 +1,5 @@
 package com.lifesense.android.health.service.devicebind.ui.fragment;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 
@@ -18,7 +16,7 @@ import com.lifesense.android.health.service.common.LSEDeviceInfoApp;
 import com.lifesense.android.health.service.common.fragment.argsbuilder.ListArgsBuilder;
 import com.lifesense.android.health.service.devicebind.adapter.FindDeviceResultRvAdapter;
 import com.lifesense.android.health.service.devicebind.ui.vm.ConnectSearchViewModel;
-import com.lifesense.android.health.service.util.ToastUtil;
+import com.lifesense.android.health.service.prefs.PreferenceStorage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,8 +53,6 @@ public class DeviceMultiFragment extends BaseFragment {
         bindDevice(adapter.getSelectedItem());
     }
 
-    Handler manHandler = new Handler(Looper.getMainLooper());
-
     public void bindDevice(LSEDeviceInfoApp lseDeviceInfoApp) {
         BleDeviceManager.getDefaultManager().stopSearch();
         final DeviceInfo lseDeviceInfo = lseDeviceInfoApp.getLSEDeviceInfo();
@@ -70,6 +66,8 @@ public class DeviceMultiFragment extends BaseFragment {
             public void onReceiveBindState(BindState bindState) {
                 if (bindState == BindState.BIND_SUCCESS) {
                     viewModel.bindSuccess(lseDeviceInfoApp);
+                    PreferenceStorage.addBondDevice(lseDeviceInfo.getMac());
+                    PreferenceStorage.cacheDeviceInfo(lseDeviceInfo.getMac(), lseDeviceInfo);
 
                 } else {
                     Log.w("bindState", bindState.name());

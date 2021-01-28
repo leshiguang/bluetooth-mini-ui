@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
 import com.lifesense.android.ble.core.application.BleDeviceManager;
+import com.lifesense.android.ble.core.application.model.BatteryInfo;
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;
 import com.lifesense.android.health.service.device.DeviceStateWrapper;
 import com.lifesense.android.health.service.devicebind.ui.activity.DeviceConnectSearchActivity;
 import com.lifesense.android.health.service.deviceconfig.adapter.DeviceStatusListAdapter;
+import com.lifesense.android.health.service.prefs.PreferenceStorage;
 import com.lifesense.utils.PreferencesUtils;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -21,6 +23,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * Create by qwerty
@@ -39,7 +43,7 @@ public class DeviceStatusListViewModel extends BaseViewModel {
     }
 
     public void onClick(View v) {
-        v.getContext().startActivity(DeviceConnectSearchActivity.makeIntentWithDisplayProduct(v.getContext()));
+        v.getContext().startActivity(DeviceConnectSearchActivity.makeIntent(v.getContext()));
     }
 
     /**
@@ -49,7 +53,8 @@ public class DeviceStatusListViewModel extends BaseViewModel {
         List<DeviceStateWrapper> list = new ArrayList<>();
         String userId = PreferencesUtils.getString(context, "userId", "0");
         if (!TextUtils.isEmpty(userId)) {
-            List<DeviceInfo> devices = BleDeviceManager.getDefaultManager().getBondedDeviceInfo();
+
+            List<DeviceInfo> devices = PreferenceStorage.getBondedDeviceInfo();
             if (CollectionUtils.isNotEmpty(devices)) {
                 Iterator<DeviceInfo> iterator = devices.iterator();
                 while (iterator.hasNext()) {
@@ -65,4 +70,6 @@ public class DeviceStatusListViewModel extends BaseViewModel {
         adapter.getValue().setItems(list);
         adapter.setValue(adapter.getValue());
     }
+
+
 }

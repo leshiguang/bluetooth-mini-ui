@@ -1,6 +1,9 @@
 package com.lifesense.android.health.service.devicedetails.ui.activity.adapter;
 
+import android.content.Intent;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
@@ -12,7 +15,10 @@ import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.common.ui.DefaultDataBindingViewHolder;
 import com.lifesense.android.health.service.databinding.ScaleItemSwitchBinding;
+import com.lifesense.android.health.service.devicedetails.ui.activity.CustomMessageReminderActivity;
 import com.lifesense.android.health.service.util.ToastUtil;
+
+import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
@@ -27,9 +33,12 @@ public class DeviceMessageReminderRvAdapter extends BaseDataBindingRvAdapter<Sca
         this.mac = mac;
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull DefaultDataBindingViewHolder<ScaleItemSwitchBinding> holder, int position) {
         super.onBindViewHolder(holder, position);
+        holder.getBinding().scCellSwitch.setVisibility(position == getItemCount() - 1 ? View.GONE : View.VISIBLE);
         holder.getBinding().scCellSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -47,6 +56,31 @@ public class DeviceMessageReminderRvAdapter extends BaseDataBindingRvAdapter<Sca
                 }
             }
         });
+    }
+
+    @Override
+    public void onItemClick(View view, int poi) {
+        super.onItemClick(view, poi);
+        if (onItemClickListener != null) {
+            onItemClickListener.onItemClick(view, poi);
+        }
+    }
+
+    OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    @Override
+    public void setItems(List<Call> items) {
+        Call call = new Call();
+        items.add(call);
+        super.setItems(items);
     }
 
     @Override
