@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
 import com.lifesense.android.ble.core.application.BleDeviceManager;
-import com.lifesense.android.ble.core.application.model.BatteryInfo;
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;
@@ -23,8 +22,6 @@ import org.apache.commons.collections4.CollectionUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * Create by qwerty

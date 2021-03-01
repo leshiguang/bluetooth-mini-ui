@@ -45,7 +45,9 @@ public class DeviceSingleFragment extends BaseFragment {
     public void onClick(View v) {
         bindDevice();
     }
+
     Handler manHandler = new Handler(Looper.getMainLooper());
+
     public void bindDevice() {
         BleDeviceManager.getDefaultManager().stopSearch();
         final DeviceInfo lseDeviceInfo = lseDeviceInfoApp.getLSEDeviceInfo();
@@ -61,6 +63,8 @@ public class DeviceSingleFragment extends BaseFragment {
                     viewModel.bindSuccess(lseDeviceInfoApp);
                     PreferenceStorage.addBondDevice(lseDeviceInfo.getMac());
                     PreferenceStorage.cacheDeviceInfo(lseDeviceInfo.getMac(), lseDeviceInfo);
+                } else if (bindState == BindState.RANDOM_NUMBER_MISS_MATCH) {
+                    viewModel.showInputCode(lseDeviceInfoApp);
                 } else {
                     Log.w("bindState", bindState.name());
                     viewModel.bindFail(lseDeviceInfoApp);
@@ -70,7 +74,7 @@ public class DeviceSingleFragment extends BaseFragment {
 
             @Override
             public void onReceiveDeviceIdRequest() {
-
+                BleDeviceManager.getDefaultManager().inputDeviceId(lseDeviceInfo.getMac(), lseDeviceInfo.getMac().replace(":", ""));
             }
 
         });

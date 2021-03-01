@@ -69,7 +69,9 @@ public class DeviceMultiFragment extends BaseFragment {
                     PreferenceStorage.addBondDevice(lseDeviceInfo.getMac());
                     PreferenceStorage.cacheDeviceInfo(lseDeviceInfo.getMac(), lseDeviceInfo);
 
-                } else {
+                } else if(bindState == BindState.RANDOM_NUMBER_MISS_MATCH){
+                    viewModel.showInputCode(lseDeviceInfoApp);
+                }else {
                     Log.w("bindState", bindState.name());
                     viewModel.bindFail(lseDeviceInfoApp);
                     BleDeviceManager.getDefaultManager().unBind(lseDeviceInfo.getMac());
@@ -78,7 +80,7 @@ public class DeviceMultiFragment extends BaseFragment {
 
             @Override
             public void onReceiveDeviceIdRequest() {
-
+                BleDeviceManager.getDefaultManager().inputDeviceId(lseDeviceInfo.getMac(), lseDeviceInfo.getMac().replace(":",""));
             }
 
         });

@@ -50,10 +50,10 @@ public class DeviceInputCodeFragment extends BaseFragment {
                 }
 
                 String code = binding.scvEdittext.getEditContent();
+                viewModel.bind(lseDeviceInfoApp);
                 BleDeviceManager.getDefaultManager().inputRandomNumber(lseDeviceInfoApp.getMacAddress(), code);
                 //移除超时任务
                 timeoutHandler.removeCallbacks(timeoutRunnable);
-                viewModel.bind(lseDeviceInfoApp);
             }
 
             @Override
