@@ -10,6 +10,7 @@ import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.ItemType;
+import com.lifesense.android.health.service.devicedetails.repository.ConfigsRepository;
 import com.lifesense.android.health.service.util.ToastUtil;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -45,7 +46,7 @@ public class HeartSwitchItem extends SettingItem<HeartRateSmartSwitch> {
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if ((configs.get(0).getMode() == HeartRateSmartSwitch.Mode.CLOSE ? false : true) == isChecked) {
+        if ((configs.get(0).getMode() != HeartRateSmartSwitch.Mode.CLOSE) == isChecked) {
             return;
         }
         HeartRateSmartSwitch heartRateSwitch = new HeartRateSmartSwitch();
@@ -53,8 +54,8 @@ public class HeartSwitchItem extends SettingItem<HeartRateSmartSwitch> {
         BleDeviceManager.getDefaultManager().updateConfig(deviceInfo.getMac(), heartRateSwitch, new Consumer<ConfigStatus>() {
             @Override
             public void accept(ConfigStatus configStatus) throws Exception {
-                fetchItemConfigs();
                 if (configStatus == ConfigStatus.SUCCESS) {
+                    ConfigsRepository.saveConfig(deviceInfo.getMac(), heartRateSwitch);
                     if (isChecked) {
                         ToastUtil.showCustomCenterShowToast(context,context.getString(R.string.scale_open_heart_rate_msg));
                     } else {
@@ -63,6 +64,7 @@ public class HeartSwitchItem extends SettingItem<HeartRateSmartSwitch> {
                 } else {
                     ToastUtil.showCustomCenterShowToast(context,context.getString(R.string.scale_setting_fail_msg));
                 }
+                fetchItemConfigs();
             }
         });
     }
