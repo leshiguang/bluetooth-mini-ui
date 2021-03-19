@@ -48,6 +48,7 @@
     <string name="scale_night_mode">夜间模式</string>
     <string name="scale_no_disturb_mode">勿扰模式</string>
     <string name="scale_encourage_setting">目标设置</string>
+    <string name="scale_realtime_heart_rate">实时心率监测</string>
     <!--  固件升级  -->
     <string name="scale_try_again">Try again</string>
     <string name="scale_cancel_upgrade">Cancel</string>

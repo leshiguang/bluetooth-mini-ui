@@ -15,6 +15,7 @@ import com.lifesense.android.health.service.common.ui.BaseDataBindingActivity;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.prefs.PreferenceStorage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
@@ -56,11 +57,12 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
     @Override
     protected void onResume() {
         super.onResume();
-        viewModel.packingDeviceState(this);
+        viewModel.packingDeviceState(this,ConnectionState.CONNECTED);
     }
     @Override
     public void onConnectionStateChange(String s, ConnectionState connectionState) {
-        viewModel.packingDeviceState(this);
+        Log.i("onConnectionStateChange", connectionState.name());
+        viewModel.packingDeviceState(this, connectionState);
     }
 
 
@@ -74,8 +76,7 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
     private void initBleSDK() {
         //静默登录
         Consumer receiver = (Consumer<List<AbstractMeasureData>>) abstractMeasureData -> Log.i("Data", JSON.toJSONString(abstractMeasureData));
-
-        BleDeviceManager.getDefaultManager().init(this,"com.leshiguang.saas.rbac.demo.appid", PreferenceStorage.getBondedMac(),receiver);
+        BleDeviceManager.getDefaultManager().init(this,"com.leshiguang.saas.rbac.demo.appid",PreferenceStorage.getBondedMac(),receiver);
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);
     }
 

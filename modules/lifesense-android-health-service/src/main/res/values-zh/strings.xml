@@ -40,6 +40,7 @@
     <string name="scale_unbind">解除绑定</string>
     <string name="scale_unit">单位设置</string>
     <string name="scale_heart_rate">心率监测</string>
+    <string name="scale_realtime_heart_rate">实时心率监测</string>
     <string name="scale_mac_address">MAC地址</string>
     <string name="scale_firmware_update">固件升级</string>
     <string name="scale_dial_peace">表盘样式</string>

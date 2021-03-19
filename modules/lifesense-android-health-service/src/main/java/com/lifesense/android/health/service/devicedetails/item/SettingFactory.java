@@ -8,6 +8,7 @@ import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.devicedetails.item.builder.UnBindBuilder;
 import com.lifesense.android.health.service.devicedetails.item.builder.DeviceNameBuilder;
 import com.lifesense.android.health.service.devicedetails.item.builder.FirmwareUpgradeBuilder;
+import com.lifesense.android.health.service.devicedetails.item.builder.pedometer.RealTimeHeartSwitchItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.pedometer.TargetEncourageItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.pedometer.EventReminderItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.pedometer.HeartRateAlertItem;
@@ -54,6 +55,7 @@ public class SettingFactory {
                 add(EventReminderItem.class);
                 add(HeartRateAlertItem.class);
                 add(HeartSwitchItem.class);
+                add(RealTimeHeartSwitchItem.class);
                 add(MessageReminderItem.class);
                 add(NightModeItem.class);
                 add(NoDisturbModeItem.class);

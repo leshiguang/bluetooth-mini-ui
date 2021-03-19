@@ -2,13 +2,23 @@ package com.lifesense.android.health.service.deviceconfig.ui;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
+import com.alibaba.fastjson.JSON;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
+import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
+import com.lifesense.android.ble.core.application.model.config.EventReminder;
+import com.lifesense.android.ble.core.application.model.config.LongSit;
+import com.lifesense.android.ble.core.application.model.config.Weathers;
+import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
+import com.lifesense.android.ble.core.application.model.enums.Day;
+import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
+import com.lifesense.android.ble.core.serializer.AbstractMeasureData;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;
 import com.lifesense.android.health.service.device.DeviceStateWrapper;
@@ -22,6 +32,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * Create by qwerty
@@ -40,13 +52,13 @@ public class DeviceStatusListViewModel extends BaseViewModel {
     }
 
     public void onClick(View v) {
-        v.getContext().startActivity(DeviceConnectSearchActivity.makeIntent(v.getContext()));
+                v.getContext().startActivity(DeviceConnectSearchActivity.makeIntent(v.getContext()));
     }
 
     /**
      * 处理已绑定设备信息
      */
-    public void packingDeviceState(Context context) {
+    public void packingDeviceState(Context context, ConnectionState states) {
         List<DeviceStateWrapper> list = new ArrayList<>();
         String userId = PreferencesUtils.getString(context, "userId", "0");
         if (!TextUtils.isEmpty(userId)) {

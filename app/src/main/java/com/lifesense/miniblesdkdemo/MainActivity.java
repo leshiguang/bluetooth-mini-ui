@@ -12,9 +12,16 @@ import com.lifesense.utils.ImageUtil;
 
 public class MainActivity extends BaseActivity {
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ImageUtil.init(this.getApplicationContext());
+        Object a = null;
+        try {
+            a.hashCode();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if(checkPermission()) {
             startActivity(new Intent(this, DeviceStatusListActivity.class));
             finish();
