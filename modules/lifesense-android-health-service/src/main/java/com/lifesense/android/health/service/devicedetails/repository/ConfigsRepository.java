@@ -33,7 +33,7 @@ public class ConfigsRepository {
             return;
         }
         String key = mac + "_" + config.getClass().getName();
-        if (annotation.type() == 0) {
+        if (annotation == null) {
             PreferenceStorage.putString(key, JSONObject.toJSONString(config));
             return;
         }
@@ -67,9 +67,7 @@ public class ConfigsRepository {
      */
     public static List<? extends AbstractConfig> getConfigs(String mac, Class<? extends AbstractConfig> clazz) {
         DataType annotation = clazz.getAnnotation(DataType.class);
-        if (annotation == null) {
-            return Collections.emptyList();
-        }
+
         String key = mac + "_" + clazz.getName();
 
         String cache =  PreferenceStorage.getString(key);
@@ -77,7 +75,7 @@ public class ConfigsRepository {
             if (TextUtils.isEmpty(cache)) {
                 //新增的设置项, 部分有缺省值
                 List<? extends AbstractConfig> defaultValue = clazz.newInstance().defaultValue();
-                if(annotation.type() == 0) {
+                if(annotation == null) {
                     if(defaultValue.size() > 0) {
                         AbstractConfig config = defaultValue.get(0);
                         PreferenceStorage.putString(key, JSON.toJSONString(config));
@@ -87,7 +85,7 @@ public class ConfigsRepository {
                 }
                 return defaultValue;
             }
-            if (annotation.type() == 0) {
+            if (annotation == null) {
                 return Arrays.asList(JSON.parseObject(cache, clazz));
             }
         } catch (Exception e) {
@@ -105,9 +103,7 @@ public class ConfigsRepository {
      */
     public static void deleteConfig(String mac, AbstractConfig config) {
         DataType annotation = config.getClass().getAnnotation(DataType.class);
-        if (annotation == null) {
-            return ;
-        }
+
         String key = mac + "_" + config.getClass().getName();
 
         String cache =  PreferenceStorage.getString(key);
@@ -115,7 +111,7 @@ public class ConfigsRepository {
             //新增的设置项
             return;
         }
-        if (annotation.type() == 0) {
+        if (annotation == null) {
             PreferenceStorage.putString(key, "");
         } else {
             List<? extends AbstractConfig> abstractConfigs = JSON.parseArray(cache, config.getClass());

@@ -46,9 +46,9 @@ public class HeartSwitchItem extends SettingItem<HeartRateSmartSwitch> {
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if ((configs.get(0).getMode() != HeartRateSmartSwitch.Mode.CLOSE) == isChecked) {
-            return;
-        }
+//        if ((configs.get(0).getMode() != HeartRateSmartSwitch.Mode.CLOSE) == isChecked) {
+//            return;
+//        }
         HeartRateSmartSwitch heartRateSwitch = new HeartRateSmartSwitch();
         heartRateSwitch.setMode(isChecked ? HeartRateSmartSwitch.Mode.ENABLE : HeartRateSmartSwitch.Mode.CLOSE);
         BleDeviceManager.getDefaultManager().updateConfig(deviceInfo.getMac(), heartRateSwitch, new Consumer<ConfigStatus>() {

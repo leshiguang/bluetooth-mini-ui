@@ -7,8 +7,11 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
+import com.lifesense.android.ble.core.application.model.config.HeartRateSwitch;
+import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
 
+import com.lifesense.android.ble.core.application.model.wifi.res.WifiInfo;
 import com.lifesense.android.ble.core.serializer.AbstractMeasureData;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingActivity;
@@ -62,6 +65,13 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
     @Override
     public void onConnectionStateChange(String s, ConnectionState connectionState) {
         Log.i("onConnectionStateChange", connectionState.name());
+        if (connectionState == ConnectionState.CONNECTED) {
+//            BleDeviceManager.getDefaultManager().scanWifi(s, wifiInfo -> Log.i("LS-BLE", "on scan wifi info :" + wifiInfo.getSsid()));
+//            HeartRateSwitch heartRateSwitch = new HeartRateSwitch();
+//            heartRateSwitch.setEnable(true);
+//
+//            BleDeviceManager.getDefaultManager().updateConfig(s, heartRateSwitch, configStatus -> Log.i("LS-BLE", configStatus.name()));
+        }
         viewModel.packingDeviceState(this, connectionState);
     }
 
@@ -75,7 +85,7 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
 
     private void initBleSDK() {
         //静默登录
-        Consumer receiver = (Consumer<List<AbstractMeasureData>>) abstractMeasureData -> Log.i("Data", JSON.toJSONString(abstractMeasureData));
+        Consumer receiver = abstractMeasureData -> Log.i("Data", JSON.toJSONString(abstractMeasureData));
         BleDeviceManager.getDefaultManager().init(this,"com.leshiguang.saas.rbac.demo.appid",PreferenceStorage.getBondedMac(),receiver);
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);
     }

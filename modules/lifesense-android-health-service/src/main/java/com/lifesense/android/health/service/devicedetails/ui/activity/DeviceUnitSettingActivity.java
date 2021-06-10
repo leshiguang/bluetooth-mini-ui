@@ -58,10 +58,10 @@ public class DeviceUnitSettingActivity extends BaseActivity implements UnitChoic
         unitChoiceRvAdapter.setOnChoiceUnitListener(this);
 
     }
-
+ 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mac = getIntent().getStringExtra(DEVICE_ID_EXTRA);
+        mac = getIntent().getStringExtra("mac_extra");
 
         int netUnitType = Stream.of((List<WeightUnitConfig>) ConfigsRepository.getConfigs(mac, WeightUnitConfig.class)).findFirst().orElse(defaultWeightUnit()).getUnitType().getCommand();
         unitChoiceRvAdapter.setChoiceWeightUnit(WeightUnit.getUnitByNetUnitType(netUnitType));

@@ -86,7 +86,6 @@ public class PreferenceStorage {
             deviceInfo.setDeviceType(cachedDeviceInfo.getDeviceType());
             deviceInfo.setSoftwareVersion(cachedDeviceInfo.getSoftwareVersion());
             deviceInfo.setHardwareVersion(cachedDeviceInfo.getHardwareVersion());
-            deviceInfo.setFirmwareVersion(cachedDeviceInfo.getFirmwareVersion());
             deviceInfo.setManufactureName(cachedDeviceInfo.getManufactureName());
             deviceInfo.setProtocolType(cachedDeviceInfo.getProtocolType());
             deviceInfo.setManufactureId(cachedDeviceInfo.getManufactureId());

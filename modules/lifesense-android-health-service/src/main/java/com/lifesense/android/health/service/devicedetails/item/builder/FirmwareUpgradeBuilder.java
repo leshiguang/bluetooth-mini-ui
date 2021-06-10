@@ -27,7 +27,7 @@ public class FirmwareUpgradeBuilder extends SettingItem {
 
     @Override
     public String getValue() {
-        return deviceInfo.getFirmwareVersion();
+        return deviceInfo.getSoftwareVersion();
     }
 
     @Override
