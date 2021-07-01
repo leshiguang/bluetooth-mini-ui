@@ -15,6 +15,7 @@ import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.Ev
 import com.lifesense.android.health.service.devicedetails.widget.AlertDialogFragment;
 import com.lifesense.android.health.service.util.ToastUtil;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class EventReminderConfigViewModel extends ConfigViewModel<EventReminder>
         adapter.setOnItemClickListener((view, position) -> {
             Intent intent = new Intent(context, EventReminderDetailActivity.class);
             intent.putExtra("deviceInfo", getDeviceInfo().getValue());
-            intent.putExtra(EventReminderDetailActivity.DATA_EXTRA,adapter.getItem(position));
+            intent.putExtra(EventReminderDetailActivity.DATA_EXTRA, (Serializable) adapter.getItem(position));
             context.startActivity(intent);
         });
         adapter.setOnImageClickListener((imageView, position) -> showDelEventReminderDialog(imageView.getContext(), position));

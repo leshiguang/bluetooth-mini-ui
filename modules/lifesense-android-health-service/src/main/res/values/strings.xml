@@ -4,36 +4,36 @@
     <string name="scale_s_bluetooth_disconnect">蓝牙未连接</string>
     <string name="scale_s_bluetooth_connected">蓝牙已连接</string>
     <string name="scale_s_connecting">连接中...</string>
-    <string formatted="false" name="scale_mine_device">我的设备</string>
+    <string name="scale_mine_device" formatted="false">我的设备</string>
 
     <string name="scale_s_empty_device_list_state">暂无绑定设备</string>
-    <string formatted="false" name="scale_device_pairing">正在绑定</string>
-    <string formatted="false" name="scale_device_repair">重新绑定</string>
-    <string formatted="false" name="scale_device_search_connect_title">已发现的设备</string>
-    <string formatted="false" name="scale_bind_successful">绑定成功</string>
-    <string formatted="false" name="scale_device_success">完成</string>
-    <string formatted="false" name="scale_how_to_use_device">了解设备如何操作</string>
-    <string formatted="false" name="scale_device_work">操作指南</string>
+    <string name="scale_device_pairing" formatted="false">正在绑定</string>
+    <string name="scale_device_repair" formatted="false">重新绑定</string>
+    <string name="scale_device_search_connect_title" formatted="false">已发现的设备</string>
+    <string name="scale_bind_successful" formatted="false">绑定成功</string>
+    <string name="scale_device_success" formatted="false">完成</string>
+    <string name="scale_how_to_use_device" formatted="false">了解设备如何操作</string>
+    <string name="scale_device_work" formatted="false">操作指南</string>
     <string name="scale_common_cancel">Cancel</string>
     <string name="scale_common_submit">Done</string>
     <string name="scale_dialog_handding">处理中...</string>
-    <string formatted="false" name="scale_device_edit_code_hints">Please enter the 6-digit verification code of the device within 55 seconds.</string>
+    <string name="scale_device_edit_code_hints" formatted="false">Please enter the 6-digit verification code of the device within 55 seconds.</string>
 
-    <string formatted="false" name="scale_device_mid_bind_false">绑定失败</string>
-    <string formatted="false" name="scale_device_more_select">*请将手机靠近设备，尝试重新绑定</string>
-    <string formatted="false" name="scale_device_please_move_your_mobile">请让手机靠近设备</string>
-    <string formatted="false" name="scale_device_open_bluetooth_to_lifesense">打开蓝牙来允许\&quot;乐心健康\&quot;连接配件</string>
-    <string formatted="false" name="scale_device_heart_maintain_mode">开启</string>
-    <string formatted="false" name="scale_permissions_location_title">请开启定位服务</string>
-    <string formatted="false" name="scale_permissions_location_open">开启后乐心健康即可搜索和连接设备</string>
-    <string formatted="false" name="scale_device_waiting_bind">等待绑定</string>
-    <string formatted="false" name="scale_device_action_bind">立即绑定</string>
-    <string formatted="false" name="scale_device_closest">(离你最近)</string>
-    <string formatted="false" name="scale_device_select_title">选择需要绑定的设备</string>
-    <string formatted="false" name="scale_device_searching">正在搜索</string>
-    <string formatted="false" name="scale_device_bluetooth_no_open">蓝牙未开启</string>
+    <string name="scale_device_mid_bind_false" formatted="false">绑定失败</string>
+    <string name="scale_device_more_select" formatted="false">*请将手机靠近设备，尝试重新绑定</string>
+    <string name="scale_device_please_move_your_mobile" formatted="false">请让手机靠近设备</string>
+    <string name="scale_device_open_bluetooth_to_lifesense" formatted="false">打开蓝牙来允许\&quot;乐心健康\&quot;连接配件</string>
+    <string name="scale_device_heart_maintain_mode" formatted="false">开启</string>
+    <string name="scale_permissions_location_title" formatted="false">请开启定位服务</string>
+    <string name="scale_permissions_location_open" formatted="false">开启后乐心健康即可搜索和连接设备</string>
+    <string name="scale_device_waiting_bind" formatted="false">等待绑定</string>
+    <string name="scale_device_action_bind" formatted="false">立即绑定</string>
+    <string name="scale_device_closest" formatted="false">(离你最近)</string>
+    <string name="scale_device_select_title" formatted="false">选择需要绑定的设备</string>
+    <string name="scale_device_searching" formatted="false">正在搜索</string>
+    <string name="scale_device_bluetooth_no_open" formatted="false">蓝牙未开启</string>
 
-    <string formatted="false" name="scale_permissions_setting">去设置</string>
+    <string name="scale_permissions_setting" formatted="false">去设置</string>
 
     <!--   设备详情-->
     <string name="scale_device_details">Device details</string>

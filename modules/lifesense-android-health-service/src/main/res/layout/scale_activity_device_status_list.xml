@@ -37,6 +37,7 @@
                 layout="@layout/scale_layout_empty_device_state" />
         </FrameLayout>
 
+
         <TextView
             android:id="@+id/btn_add"
             style="@style/scale_PositiveButtonStyle"
