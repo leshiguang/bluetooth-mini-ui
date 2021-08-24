@@ -56,7 +56,7 @@ public class DeviceMultiFragment extends BaseFragment {
     public void bindDevice(LSEDeviceInfoApp lseDeviceInfoApp) {
         BleDeviceManager.getDefaultManager().stopSearch();
         final DeviceInfo lseDeviceInfo = lseDeviceInfoApp.getLSEDeviceInfo();
-        BleDeviceManager.getDefaultManager().bind(lseDeviceInfo, new BindReceiver() {
+        BleDeviceManager.getDefaultManager().bindWithRecovery(lseDeviceInfo, new BindReceiver() {
             @Override
             public void onReceiveRandomNumberRequest() {
                 viewModel.showInputCode(lseDeviceInfoApp);
