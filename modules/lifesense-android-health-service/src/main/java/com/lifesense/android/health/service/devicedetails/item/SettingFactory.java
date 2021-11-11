@@ -75,6 +75,22 @@ public class SettingFactory {
                 add(UnBindBuilder.class);
             }
         });
+        builderMaps.put(DeviceType.SKIP_ROPE,new LinkedList<Class<? extends SettingItem>>() {
+            {
+                add(DeviceNameBuilder.class);
+                add(MacAddressBuilder.class);
+                add(FirmwareUpgradeBuilder.class);
+                add(UnBindBuilder.class);
+            }
+        });
+        builderMaps.put(DeviceType.MEDICINE_BOX,new LinkedList<Class<? extends SettingItem>>() {
+            {
+                add(DeviceNameBuilder.class);
+                add(MacAddressBuilder.class);
+                add(FirmwareUpgradeBuilder.class);
+                add(UnBindBuilder.class);
+            }
+        });
     }
 
 

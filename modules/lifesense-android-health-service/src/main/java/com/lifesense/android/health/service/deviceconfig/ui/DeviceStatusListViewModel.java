@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
 import com.alibaba.fastjson.JSON;
+import com.lifesense.android.ble.core.application.ApplicationContext;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
 import com.lifesense.android.ble.core.application.model.config.EventReminder;
@@ -68,9 +69,14 @@ public class DeviceStatusListViewModel extends BaseViewModel {
                 Iterator<DeviceInfo> iterator = devices.iterator();
                 while (iterator.hasNext()) {
                     DeviceInfo device = iterator.next();
-                    ConnectionState state = BleDeviceManager.getDefaultManager().getDeviceConnectState(device.getMac());
-                    DeviceStateWrapper stateWrapper = new DeviceStateWrapper(device, state);
-                    list.add(stateWrapper);
+                    try {
+                        ConnectionState state = BleDeviceManager.getDefaultManager().getDeviceConnectState(device.getMac());
+                        DeviceStateWrapper stateWrapper = new DeviceStateWrapper(device, state);
+                        list.add(stateWrapper);
+                    } catch (Exception e) {
+
+                    }
+
                 }
             }
 

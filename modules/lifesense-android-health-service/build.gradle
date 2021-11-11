@@ -60,6 +60,7 @@ dependencies {
     annotationProcessor 'com.hannesdorfmann.fragmentargs:processor:4.0.0-RC1'
 //    implementation project(':core')
 
+
 }
 android.libraryVariants.all { variant ->
     variant.outputs.all {

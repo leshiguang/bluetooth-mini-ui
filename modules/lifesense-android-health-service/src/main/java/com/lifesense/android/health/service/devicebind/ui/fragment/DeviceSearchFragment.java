@@ -57,7 +57,7 @@ public class DeviceSearchFragment extends BaseFragment {
     private void startSearchDevice() {
         getViewDataBinding().setVariable(BR.start, true);
         startCountTimer();
-        BleDeviceManager.getDefaultManager().search(15000, new Consumer<DeviceInfo>() {
+        BleDeviceManager.getDefaultManager().search(5000, new Consumer<DeviceInfo>() {
             @Override
             public void accept(DeviceInfo deviceInfo) throws Exception {
                 if (deviceInfo == null) {

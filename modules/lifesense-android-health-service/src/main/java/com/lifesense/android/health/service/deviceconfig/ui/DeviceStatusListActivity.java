@@ -1,18 +1,22 @@
 package com.lifesense.android.health.service.deviceconfig.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.MainThread;
 
 import com.alibaba.fastjson.JSON;
-import com.lifesense.android.ble.core.application.ApplicationContext;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
 
 import com.lifesense.android.ble.core.application.model.WeightMeasureData;
+
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
 
 
@@ -24,7 +28,13 @@ import com.lifesense.android.health.service.common.ui.BaseDataBindingActivity;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.prefs.PreferenceStorage;
 
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Author:  winds
@@ -65,12 +75,14 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
         super.onResume();
         viewModel.packingDeviceState(this,ConnectionState.CONNECTED);
     }
+    @SuppressLint("CheckResult")
     @Override
     public void onConnectionStateChange(String s, ConnectionState connectionState) {
         Log.i("onConnectionStateChange", connectionState.name());
         if (connectionState == ConnectionState.CONNECTED) {
             DeviceInfo deviceInfoWithMac = BleDeviceManager.getDefaultManager().getDeviceInfoWithMac(s);
             Log.i("LS-Bluetooth", JSON.toJSONString(deviceInfoWithMac));
+
 
         }
 
@@ -86,9 +98,10 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
 
 
     private void initBleSDK() {
+
         //静默登录
         Consumer receiver = abstractMeasureData -> show((AbstractMeasureData) abstractMeasureData);
-        BleDeviceManager.getDefaultManager().init(this,"com.leshiguang.saas.rbac.demo.appid", PreferenceStorage.getBondedMac(), receiver);
+        BleDeviceManager.getDefaultManager().init(this,"lx62a113f084ef6a98", PreferenceStorage.getBondedMac(), receiver);
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);
     }
 
@@ -100,9 +113,10 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
                 return;
             }
         }
+        abstractMeasureData.setDeviceInfo(null);
         Log.i("Data", JSON.toJSONString(abstractMeasureData));
-        Intent intent = new Intent(ApplicationContext.context, MeasurementDataActivity.class);
-        intent.putExtra("measurementData", JSON.toJSONString(abstractMeasureData));
-        startActivity(intent);
+//        Intent intent = new Intent(ApplicationContext.context, MeasurementDataActivity.class);
+//        intent.putExtra("measurementData", JSON.toJSONString(abstractMeasureData));
+//        startActivity(intent);
     }
 }

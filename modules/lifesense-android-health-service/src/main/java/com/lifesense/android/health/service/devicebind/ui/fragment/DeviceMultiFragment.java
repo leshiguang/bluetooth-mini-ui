@@ -56,7 +56,7 @@ public class DeviceMultiFragment extends BaseFragment {
     public void bindDevice(LSEDeviceInfoApp lseDeviceInfoApp) {
         BleDeviceManager.getDefaultManager().stopSearch();
         final DeviceInfo lseDeviceInfo = lseDeviceInfoApp.getLSEDeviceInfo();
-        BleDeviceManager.getDefaultManager().bindWithRecovery(lseDeviceInfo, new BindReceiver() {
+        BleDeviceManager.getDefaultManager().bind(lseDeviceInfo, new BindReceiver() {
             @Override
             public void onReceiveRandomNumberRequest() {
                 viewModel.showInputCode(lseDeviceInfoApp);
@@ -89,12 +89,8 @@ public class DeviceMultiFragment extends BaseFragment {
 
     private static ArrayList<LSEDeviceInfoApp> changeNearest(List<LSEDeviceInfoApp> mDeviceList) {
         ArrayList<LSEDeviceInfoApp> lseDeviceInfoApps = new ArrayList<>(mDeviceList);
-        Collections.sort(lseDeviceInfoApps, new Comparator<LSEDeviceInfoApp>() {
-            @Override
-            public int compare(LSEDeviceInfoApp o1, LSEDeviceInfoApp o2) {
-                return Math.abs(o1.getRssi()) > Math.abs(o2.getRssi()) ? 1 : -1;
-            }
-        });
+
+        Collections.sort(lseDeviceInfoApps, (o1, o2) -> Math.abs(o1.getRssi()) > Math.abs(o2.getRssi()) ? 1 : -1);
         return lseDeviceInfoApps;
     }
 }

@@ -3,4 +3,5 @@ include ':modules:lifesense-android-common-service'
 include ':app'
 //include('core')
 //project(':core').projectDir = file('/Users/alexwu/workspace/Bluetooth/core')
+
 rootProject.name = "MiniBleSdkDemo"

@@ -50,5 +50,16 @@
             android:onClick="@{(view)->viewModel.onClick(view)}"
             />
 
+        <TextView
+            android:id="@+id/btn_release"
+            style="@style/scale_PositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center"
+            android:text="释放资源"
+            />
+
     </LinearLayout>
 </layout>

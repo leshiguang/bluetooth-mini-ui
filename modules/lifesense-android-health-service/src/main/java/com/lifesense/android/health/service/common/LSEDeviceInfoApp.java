@@ -3,6 +3,7 @@ package com.lifesense.android.health.service.common;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 
@@ -47,6 +48,10 @@ public class LSEDeviceInfoApp implements Comparable, Serializable {
     }
 
     public String getDeviceName() {
+        if (!TextUtils.isEmpty(macAddress)) {
+            String replacedMac = macAddress.replace(":", "");
+            return deviceName + replacedMac.substring(replacedMac.length() - 4);
+        }
         return deviceName;
     }
 
