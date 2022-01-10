@@ -37,9 +37,12 @@ public class HeartRateAlertConfigViewModel extends ConfigViewModel<HeartRateAler
 
     public void onHeartAlertRangeClick(View view) {
         OptionPickerUtil.showRangePicker(view.getContext(), 20, 255, 20, 255, (start, end) -> {
-            HeartRateAlert heartRateAlert = getUpdateConfig().getValue();
+            HeartRateAlert heartRateAlert = new HeartRateAlert();
             heartRateAlert.setRangeLeft(start);
             heartRateAlert.setRangeRight(end);
+            heartRateAlert.setEnable(true);
+            // 1常规、2 运动
+            heartRateAlert.setType(2);
             updateConfig();
         });
     }

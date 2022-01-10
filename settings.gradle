@@ -1,6 +1,7 @@
 include ':modules:lifesense-android-health-service'
 include ':modules:lifesense-android-common-service'
 include ':app'
+
 //include('core')
 //project(':core').projectDir = file('/Users/alexwu/workspace/Bluetooth/core')
 
