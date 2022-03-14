@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.StringRes;
 
-import com.lifesense.android.ble.core.application.model.config.WeightUnitConfig;
+import com.lifesense.android.ble.device.fatscale.model.config.WeightUnitConfig;
 import com.lifesense.android.health.service.R;
 
 

@@ -6,13 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.annimon.stream.Stream;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
-import com.lifesense.android.ble.core.application.model.config.HeartRateSwitch;
-import com.lifesense.android.ble.core.application.model.config.LengthUnitConfig;
-import com.lifesense.android.ble.core.application.model.config.WeightUnitConfig;
+
 import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 import com.lifesense.android.ble.core.serializer.AbstractConfig;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 
+import com.lifesense.android.ble.device.band.model.config.HeartRateSwitch;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.item.builder.ItemType;
 import com.lifesense.android.health.service.devicedetails.model.HeightUnit;

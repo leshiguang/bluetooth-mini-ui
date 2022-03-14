@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.lifesense.android.ble.core.application.model.config.DialPlate.DialPlateType" />
+            type="com.lifesense.android.ble.device.band.model.config.DialPlate.DialPlateType" />
         <variable
             name="selected"
             type="boolean" />

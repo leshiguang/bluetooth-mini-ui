@@ -12,13 +12,10 @@ import com.alibaba.fastjson.JSON;
 import com.lifesense.android.ble.core.application.ApplicationContext;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
-import com.lifesense.android.ble.core.application.model.config.EventReminder;
-import com.lifesense.android.ble.core.application.model.config.LongSit;
-import com.lifesense.android.ble.core.application.model.config.Weathers;
+
 import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
-import com.lifesense.android.ble.core.application.model.enums.Day;
-import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
+
 import com.lifesense.android.ble.core.serializer.AbstractMeasureData;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
 import com.lifesense.android.health.service.common.ui.BaseViewModel;

@@ -1,6 +1,7 @@
 package com.lifesense.android.health.service.devicedetails.item.builder.scale;
 
-import com.lifesense.android.ble.core.application.model.config.LengthUnitConfig;
+
+import com.lifesense.android.ble.device.band.model.config.LengthUnitConfig;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.model.HeightUnit;
 import com.lifesense.android.health.service.devicedetails.ui.activity.DeviceUnitSettingActivity;

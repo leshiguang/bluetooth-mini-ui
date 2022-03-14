@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
+import com.lifesense.android.ble.device.band.Band;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.common.fragment.argsbuilder.SerializableArgsBuilder;
 import com.lifesense.android.health.service.common.ui.BaseFragment;
@@ -51,7 +52,7 @@ public class DeviceInputCodeFragment extends BaseFragment {
 
                 String code = binding.scvEdittext.getEditContent();
                 viewModel.bind(lseDeviceInfoApp);
-                BleDeviceManager.getDefaultManager().inputRandomNumber(lseDeviceInfoApp.getMacAddress(), code);
+                BleDeviceManager.getDefaultManager().getDevice(Band.class).inputRandomNumber(lseDeviceInfoApp.getMacAddress(), code);
                 //移除超时任务
                 timeoutHandler.removeCallbacks(timeoutRunnable);
             }

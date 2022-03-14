@@ -1,6 +1,6 @@
 package com.lifesense.android.health.service.devicedetails.ui.activity;
 
-import com.lifesense.android.ble.core.application.model.config.DialPlate;
+import com.lifesense.android.ble.device.band.model.config.DialPlate;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.ui.activity.vm.DialPlateConfigViewModel;

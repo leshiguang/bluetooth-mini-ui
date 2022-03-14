@@ -1,6 +1,6 @@
 package com.lifesense.android.health.service.devicedetails.ui.activity;
 
-import com.lifesense.android.ble.core.application.model.config.HeartRateAlert;
+import com.lifesense.android.ble.device.band.model.config.HeartRateAlert;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.ui.activity.vm.HeartRateAlertConfigViewModel;
@@ -10,7 +10,7 @@ import com.lifesense.android.health.service.devicedetails.ui.activity.vm.HeartRa
  * 心率预警
  *
  * @author alexwu*/
-public class HeartRateAlertSettingActivity extends BaseSettingActivity<HeartRateAlertConfigViewModel,HeartRateAlert> {
+public class HeartRateAlertSettingActivity extends BaseSettingActivity<HeartRateAlertConfigViewModel, HeartRateAlert> {
 
     @Override
     protected int getContentView() {

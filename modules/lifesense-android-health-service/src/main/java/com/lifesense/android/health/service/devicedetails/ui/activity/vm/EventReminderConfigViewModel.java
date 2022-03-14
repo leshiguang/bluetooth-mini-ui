@@ -7,8 +7,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.MutableLiveData;
-import com.lifesense.android.ble.core.application.model.config.EventReminder;
+
 import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
+import com.lifesense.android.ble.device.band.model.config.EventReminder;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.devicedetails.ui.activity.EventReminderDetailActivity;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.EventReminderRvAdapter;

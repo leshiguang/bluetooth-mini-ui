@@ -2,7 +2,7 @@ package com.lifesense.android.health.service.devicedetails.item.builder.pedomete
 
 
 
-import com.lifesense.android.ble.core.application.model.config.HeartRateAlert;
+import com.lifesense.android.ble.device.band.model.config.HeartRateAlert;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.ui.activity.HeartRateAlertSettingActivity;
 

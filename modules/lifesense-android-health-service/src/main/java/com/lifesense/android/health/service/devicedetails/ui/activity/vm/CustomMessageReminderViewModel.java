@@ -8,8 +8,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
-import com.lifesense.android.ble.core.application.model.config.Call;
-import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
+import com.lifesense.android.ble.device.band.model.config.Call;
+import com.lifesense.android.ble.device.band.model.enums.VibrationMode;
 
 
 /**

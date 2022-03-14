@@ -32,10 +32,10 @@ import java.util.Map;
  * Create on 2020/10/12
  **/
 public class SettingFactory {
-    private static Map<DeviceType,List<Class<? extends SettingItem>>> builderMaps = new HashMap<>();
+    private static Map<String,List<Class<? extends SettingItem>>> builderMaps = new HashMap<>();
 
     static {
-        builderMaps.put(DeviceType.FatScale,new LinkedList<Class<? extends SettingItem>>(){
+        builderMaps.put("FatScale",new LinkedList<Class<? extends SettingItem>>(){
             {
                 add(DeviceNameBuilder.class);
                 add(WeightUnitSettingBuilder.class);
@@ -45,7 +45,7 @@ public class SettingFactory {
             }
         });
 
-        builderMaps.put(DeviceType.Bracelet,new LinkedList<Class<? extends SettingItem>>() {
+        builderMaps.put("Band",new LinkedList<Class<? extends SettingItem>>() {
             {
                 add(DeviceNameBuilder.class);
                 add(MacAddressBuilder.class);
@@ -67,7 +67,7 @@ public class SettingFactory {
                 add(UnBindBuilder.class);
             }
         });
-        builderMaps.put(DeviceType.BloodPressure,new LinkedList<Class<? extends SettingItem>>() {
+        builderMaps.put("BloodPressure",new LinkedList<Class<? extends SettingItem>>() {
             {
                 add(DeviceNameBuilder.class);
                 add(MacAddressBuilder.class);
@@ -75,7 +75,7 @@ public class SettingFactory {
                 add(UnBindBuilder.class);
             }
         });
-        builderMaps.put(DeviceType.SKIP_ROPE,new LinkedList<Class<? extends SettingItem>>() {
+        builderMaps.put("SkippingRope",new LinkedList<Class<? extends SettingItem>>() {
             {
                 add(DeviceNameBuilder.class);
                 add(MacAddressBuilder.class);
@@ -83,7 +83,7 @@ public class SettingFactory {
                 add(UnBindBuilder.class);
             }
         });
-        builderMaps.put(DeviceType.MEDICINE_BOX,new LinkedList<Class<? extends SettingItem>>() {
+        builderMaps.put("MedicalKit",new LinkedList<Class<? extends SettingItem>>() {
             {
                 add(DeviceNameBuilder.class);
                 add(MacAddressBuilder.class);
@@ -99,7 +99,7 @@ public class SettingFactory {
     }
 
     public static List<SettingItem> create(AppCompatActivity context, DeviceInfo device) {
-        DeviceType deviceType = device.getDeviceType();
+        String deviceType = device.getDeviceType();
         List<Class<? extends SettingItem>> builderList = builderMaps.get(deviceType);
         List<SettingItem> settingItemList = new ArrayList<>();
         for (Class<? extends SettingItem> builderClass : builderList) {

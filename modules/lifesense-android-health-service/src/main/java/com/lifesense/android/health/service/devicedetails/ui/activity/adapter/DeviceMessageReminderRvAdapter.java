@@ -8,8 +8,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 
 import com.lifesense.android.ble.core.application.BleDeviceManager;
-import com.lifesense.android.ble.core.application.model.config.Call;
+
 import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
+import com.lifesense.android.ble.device.band.model.config.Call;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;

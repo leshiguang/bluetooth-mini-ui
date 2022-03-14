@@ -10,7 +10,8 @@ import androidx.lifecycle.Transformations;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.lifesense.android.ble.core.application.model.config.TargetEncourage;
+
+import com.lifesense.android.ble.device.band.model.config.TargetEncourage;
 import com.lifesense.android.health.service.devicedetails.utils.OptionPickerUtil;
 
 import java.util.Arrays;

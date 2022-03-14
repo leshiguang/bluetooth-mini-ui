@@ -6,7 +6,8 @@ import android.widget.CompoundButton;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
 
-import com.lifesense.android.ble.core.application.model.config.HeartRateAlert;
+
+import com.lifesense.android.ble.device.band.model.config.HeartRateAlert;
 import com.lifesense.android.health.service.devicedetails.utils.OptionPickerUtil;
 
 /**

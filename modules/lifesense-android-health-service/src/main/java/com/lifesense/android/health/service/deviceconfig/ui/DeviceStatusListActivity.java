@@ -15,13 +15,12 @@ import com.alibaba.fastjson.JSON;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
 import com.lifesense.android.ble.core.application.ConnectionStateReceiver;
 
-import com.lifesense.android.ble.core.application.model.WeightMeasureData;
-
 import com.lifesense.android.ble.core.application.model.enums.ConnectionState;
 
 
 import com.lifesense.android.ble.core.serializer.AbstractMeasureData;
 import com.lifesense.android.ble.core.valueobject.DeviceInfo;
+import com.lifesense.android.ble.device.fatscale.model.WeightMeasureData;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.MeasurementDataActivity;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingActivity;
@@ -101,7 +100,9 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
 
         //静默登录
         Consumer receiver = abstractMeasureData -> show((AbstractMeasureData) abstractMeasureData);
-        BleDeviceManager.getDefaultManager().init(this,"lx62a113f084ef6a98", PreferenceStorage.getBondedMac(), receiver);
+        BleDeviceManager.getDefaultManager().setDebug(true);
+        BleDeviceManager.getDefaultManager().init(this,"lx62a113f084ef6a98","12345",true, PreferenceStorage.getBondedMac(), receiver);
+
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);
     }
 

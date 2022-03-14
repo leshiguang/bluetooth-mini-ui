@@ -2,7 +2,7 @@ package com.lifesense.android.health.service.devicedetails.model;
 
 import android.widget.CompoundButton;
 
-import com.lifesense.android.ble.core.application.model.config.Call;
+import com.lifesense.android.ble.device.band.model.config.Call;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.item.builder.ItemType;
 

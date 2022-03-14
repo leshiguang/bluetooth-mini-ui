@@ -13,9 +13,9 @@ import androidx.lifecycle.Transformations;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.view.OptionsPickerView;
-import com.lifesense.android.ble.core.application.model.config.EventReminder;
-import com.lifesense.android.ble.core.application.model.enums.Day;
-import com.lifesense.android.ble.core.application.model.enums.VibrationMode;
+import com.lifesense.android.ble.device.band.model.config.EventReminder;
+import com.lifesense.android.ble.device.band.model.enums.Day;
+import com.lifesense.android.ble.device.band.model.enums.VibrationMode;
 import com.lifesense.android.health.service.devicedetails.utils.OptionPickerUtil;
 
 import java.util.ArrayList;

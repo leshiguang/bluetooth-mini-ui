@@ -1,6 +1,6 @@
 package com.lifesense.android.health.service.devicedetails.ui.activity;
 
-import com.lifesense.android.ble.core.application.model.config.EventReminder;
+import com.lifesense.android.ble.device.band.model.config.EventReminder;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.ui.activity.vm.EventReminderConfigViewModel;
@@ -10,7 +10,7 @@ import com.lifesense.android.health.service.devicedetails.ui.activity.vm.EventRe
  * 事件提醒列表
  *
  * @author alexwu*/
-public class EventReminderListActivity extends BaseSettingActivity<EventReminderConfigViewModel,EventReminder>{
+public class EventReminderListActivity extends BaseSettingActivity<EventReminderConfigViewModel, EventReminder>{
 
     @Override
     protected int getContentView() {

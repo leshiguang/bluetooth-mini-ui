@@ -1,6 +1,7 @@
 package com.lifesense.android.health.service.devicedetails.item.builder.scale;
 
-import com.lifesense.android.ble.core.application.model.config.WeightUnitConfig;
+
+import com.lifesense.android.ble.device.fatscale.model.config.WeightUnitConfig;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.model.WeightUnit;
 import com.lifesense.android.health.service.devicedetails.ui.activity.DeviceUnitSettingActivity;

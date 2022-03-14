@@ -1,6 +1,6 @@
 package com.lifesense.android.health.service.devicedetails.item.builder.pedometer;
 
-import com.lifesense.android.ble.core.application.model.config.TargetEncourage;
+import com.lifesense.android.ble.device.band.model.config.TargetEncourage;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.ui.activity.EncourageSingleSettingActivity;
 

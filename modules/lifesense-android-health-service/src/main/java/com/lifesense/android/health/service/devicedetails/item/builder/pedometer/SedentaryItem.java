@@ -3,11 +3,11 @@ package com.lifesense.android.health.service.devicedetails.item.builder.pedomete
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.lifesense.android.ble.core.application.model.config.LongSit;
-import com.lifesense.android.ble.core.valueobject.DeviceInfo;
-import com.lifesense.android.health.service.devicedetails.item.SettingFactory;
-import com.lifesense.android.health.service.devicedetails.item.SettingItem;
+//
+//import com.lifesense.android.ble.core.application.model.config.LongSit;
+//import com.lifesense.android.ble.core.valueobject.DeviceInfo;
+//import com.lifesense.android.health.service.devicedetails.item.SettingFactory;
+//import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 
 /**
  * Create by qwerty

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.lifesense.android.ble.core.application.model.config.EventReminder" />
+            type="com.lifesense.android.ble.device.band.model.config.EventReminder" />
         <import type="com.lifesense.android.health.service.util.FormatUtil"/>
     </data>
 

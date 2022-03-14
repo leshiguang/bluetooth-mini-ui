@@ -10,7 +10,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
-import com.lifesense.android.ble.core.application.model.config.Call;
+import com.lifesense.android.ble.device.band.model.config.Call;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.devicedetails.ui.activity.CustomMessageReminderActivity;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.DeviceMessageReminderRvAdapter;

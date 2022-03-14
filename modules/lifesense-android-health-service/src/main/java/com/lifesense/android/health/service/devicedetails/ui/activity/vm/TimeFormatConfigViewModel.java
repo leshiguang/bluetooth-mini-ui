@@ -3,7 +3,7 @@ package com.lifesense.android.health.service.devicedetails.ui.activity.vm;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
-import com.lifesense.android.ble.core.application.model.config.TimeFormat;
+import com.lifesense.android.ble.device.band.model.config.TimeFormat;
 import com.lifesense.android.health.service.common.ui.BaseDataBindingRvAdapter;
 import com.lifesense.android.health.service.devicedetails.ui.activity.adapter.TimeFormatRvAdapter;
 

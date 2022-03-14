@@ -28,15 +28,7 @@ public class ConfigsRepository {
      * @param config
      */
     public static void saveConfig(String mac, AbstractConfig config) {
-        DataType annotation = config.getClass().getAnnotation(DataType.class);
-        if (annotation == null) {
-            return;
-        }
         String key = mac + "_" + config.getClass().getName();
-        if (annotation == null) {
-            PreferenceStorage.putString(key, JSONObject.toJSONString(config));
-            return;
-        }
         List list;
         String cache =  PreferenceStorage.getString(key);
 
@@ -66,8 +58,6 @@ public class ConfigsRepository {
      * @return
      */
     public static List<? extends AbstractConfig> getConfigs(String mac, Class<? extends AbstractConfig> clazz) {
-        DataType annotation = clazz.getAnnotation(DataType.class);
-
         String key = mac + "_" + clazz.getName();
 
         String cache =  PreferenceStorage.getString(key);
@@ -75,18 +65,8 @@ public class ConfigsRepository {
             if (TextUtils.isEmpty(cache)) {
                 //新增的设置项, 部分有缺省值
                 List<? extends AbstractConfig> defaultValue = clazz.newInstance().defaultValue();
-                if(annotation == null) {
-                    if(defaultValue.size() > 0) {
-                        AbstractConfig config = defaultValue.get(0);
-                        PreferenceStorage.putString(key, JSON.toJSONString(config));
-                    }
-                } else {
-                    PreferenceStorage.putString(key,JSON.toJSONString(defaultValue));
-                }
+                PreferenceStorage.putString(key,JSON.toJSONString(defaultValue));
                 return defaultValue;
-            }
-            if (annotation == null) {
-                return Arrays.asList(JSON.parseObject(cache, clazz));
             }
         } catch (Exception e) {
             Log.i(TAG, Optional.ofNullable(e.getMessage()).orElse("NPE"));
@@ -102,7 +82,6 @@ public class ConfigsRepository {
      * @param config
      */
     public static void deleteConfig(String mac, AbstractConfig config) {
-        DataType annotation = config.getClass().getAnnotation(DataType.class);
 
         String key = mac + "_" + config.getClass().getName();
 
@@ -111,13 +90,9 @@ public class ConfigsRepository {
             //新增的设置项
             return;
         }
-        if (annotation == null) {
-            PreferenceStorage.putString(key, "");
-        } else {
-            List<? extends AbstractConfig> abstractConfigs = JSON.parseArray(cache, config.getClass());
-            abstractConfigs.remove(config);
-            PreferenceStorage.putString(key, JSON.toJSONString(abstractConfigs));
-        }
+        List<? extends AbstractConfig> abstractConfigs = JSON.parseArray(cache, config.getClass());
+        abstractConfigs.remove(config);
+        PreferenceStorage.putString(key, JSON.toJSONString(abstractConfigs));
 
     }
 }

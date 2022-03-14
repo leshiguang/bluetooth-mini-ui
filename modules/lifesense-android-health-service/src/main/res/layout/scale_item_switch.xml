@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="item" type="com.lifesense.android.ble.core.application.model.config.Call"/>
+        <variable name="item" type="com.lifesense.android.ble.device.band.model.config.Call"/>
         <variable
             name="adapter"
             type="com.lifesense.android.health.service.devicedetails.ui.activity.adapter.DeviceMessageReminderRvAdapter" />
         <import type="com.lifesense.android.health.service.devicedetails.utils.DataTransformUtil"/>
         <import type="android.view.View"></import>
-        <import type="com.lifesense.android.ble.core.application.model.config.Call.ReminderType"/>
+        <import type="com.lifesense.android.ble.device.band.model.config.Call.ReminderType"/>
     </data>
     <LinearLayout
         android:id="@+id/item"

@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.annimon.stream.Stream;
 import com.lifesense.android.ble.core.application.BleDeviceManager;
-import com.lifesense.android.ble.core.application.model.config.WeightUnitConfig;
 import com.lifesense.android.ble.core.application.model.enums.ConfigStatus;
 
+import com.lifesense.android.ble.device.fatscale.model.config.WeightUnitConfig;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.adapter.UnitChoiceRvAdapter;
 import com.lifesense.android.health.service.common.ui.BaseActivity;

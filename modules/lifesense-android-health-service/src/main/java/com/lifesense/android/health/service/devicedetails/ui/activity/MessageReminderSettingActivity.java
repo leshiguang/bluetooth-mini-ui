@@ -1,7 +1,8 @@
 package com.lifesense.android.health.service.devicedetails.ui.activity;
 
 import android.os.Bundle;
-import com.lifesense.android.ble.core.application.model.config.Call;
+
+import com.lifesense.android.ble.device.band.model.config.Call;
 import com.lifesense.android.health.service.BR;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.ui.activity.vm.MessageReminderViewModel;
@@ -11,7 +12,7 @@ import com.lifesense.android.health.service.devicedetails.ui.activity.vm.Message
  * Create on 2020/6/9
  * 消息提醒
  **/
-public class MessageReminderSettingActivity extends BaseSettingActivity<MessageReminderViewModel,Call> {
+public class MessageReminderSettingActivity extends BaseSettingActivity<MessageReminderViewModel, Call> {
 
     @Override
     protected int getContentView() {

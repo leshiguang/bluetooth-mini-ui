@@ -1,6 +1,7 @@
 package com.lifesense.android.health.service.devicedetails.item.builder.pedometer;
 
-import com.lifesense.android.ble.core.application.model.config.NightMode;
+
+import com.lifesense.android.ble.device.band.model.config.NightMode;
 import com.lifesense.android.health.service.R;
 import com.lifesense.android.health.service.devicedetails.item.SettingItem;
 import com.lifesense.android.health.service.devicedetails.ui.activity.NightModeSettingActivity;
