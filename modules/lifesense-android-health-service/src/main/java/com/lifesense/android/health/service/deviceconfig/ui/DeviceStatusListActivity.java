@@ -101,7 +101,7 @@ public class DeviceStatusListActivity extends BaseDataBindingActivity<DeviceStat
         //静默登录
         Consumer receiver = abstractMeasureData -> show((AbstractMeasureData) abstractMeasureData);
         BleDeviceManager.getDefaultManager().setDebug(true);
-        BleDeviceManager.getDefaultManager().init(this,"lx62a113f084ef6a98","12345",true, PreferenceStorage.getBondedMac(), receiver);
+        BleDeviceManager.getDefaultManager().init(this,"lx62a113f084ef6a98","12345", PreferenceStorage.getBondedMac(), receiver);
 
         BleDeviceManager.getDefaultManager().registerConnectionStatusReceiver(this);
     }
